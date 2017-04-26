@@ -26,7 +26,34 @@ Bienvenidos a notAll!
                 <li><a href="#Portfolio">Partituras Públicas</a></li>
                 <li class="small-logo"><a href="#header"><img src="img/small-logo.png" alt=""></a></li>
                 <li><a href="#team">Equipo</a></li>
-                <li><a href="#contact">Entrar</a></li>
+                <li><a href="#contact">Registrate</a></li>
+                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Entrar</button>
+
+                <div id="id01" class="modal"style="padding: 10%;">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                    <form class="modal-content animate" action="/action_page.php">
+                        <h2 style="margin-top: 3%">Introduce tus datos</h2>
+
+                        <div class="container">
+                            <label><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" required>
+
+                            <label><b>Contraseña</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+
+                            <label><b>Recordad contraseña</b></label>
+                            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                            <input type="checkbox" checked="checked"> Recordarme
+                            <p><a href="#">Terminos & Privacidad</a>.</p>
+
+                            <div class="clearfix">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+                                <button type="submit" class="signupbtn">Entrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
             </ul>
             <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
         </div>
@@ -160,7 +187,7 @@ Bienvenidos a notAll!
                 </div>
 
                     <h3 class="wow fadeInDown delay-09s">Juan Ortega Marín </h3>
-                    <span class="wow fadeInDown delay-09s">Creador, diseñador y programador</span>
+                    <span class="wow fadeInDown delay-09s">Creador, desarrollador y diseñador</span>
                     <p class="wow fadeInDown delay-09s">orem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
                 </div>
             </div>
@@ -179,52 +206,46 @@ Bienvenidos a notAll!
             <h2 style="margin-bottom: 5%">Registrate</h2>
 
             <div class="row">
-                <div class="col-lg-6 col-sm-7 wow fadeInLeft">
-                    <div id="sendmessage">Mensaje enviado. Vamos a tu Escritorio ... </div>
-                    <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control input-text" id="nombre" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control input-text" id="apellidos" placeholder="Tus Apellidos" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control input-text" name="email" id="email" placeholder="Tu Correo" data-rule="email" data-msg="Introduce un email válido" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Localidad" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Provincia" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Pais" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
-                    </div>
-
-                    <ul class="social-link">
-                        <li class="twitter"><a href="https://twitter.com/jortegm"><i class="fa-twitter"></i></a></li>
-                        <li class="facebook"><a href="#"><i class="fa-facebook"></i></a></li>
-                        <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
-                    <h4> Añade una pequeña biografia sobre tí</h4>
+                <form action="" method="post" role="form" class="contactForm">
+                    <div class="col-lg-6 col-sm-7 wow fadeInLeft delay-05s">
+                        <div id="sendmessage">Mensaje enviado. Vamos a tu Escritorio ... </div>
+                        <div id="errormessage"></div>
                             <div class="form-group">
-                                <textarea class="form-control input-text text-area" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Biografía"></textarea>
+                                <input type="text" name="name" class="form-control input-text" id="nombre" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
                                 <div class="validation"></div>
                             </div>
-
-                            <div class="text-center"><button type="submit" class="input-btn">Entrar</button></div>
-                        </form>
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control input-text" id="apellidos" placeholder="Tus Apellidos" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control input-text" name="email" id="email" placeholder="Tu Correo" data-rule="email" data-msg="Introduce un email válido" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Localidad" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Provincia" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Pais" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
                     </div>
-                </div>
+
+                            <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+                                <h4> Añade una pequeña biografia sobre tí</h4>
+                                    <div class="form-group">
+                                        <textarea class="form-control input-text text-area" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Biografía"></textarea>
+                                        <div class="validation"></div>
+                                    </div>
+                            </div>
+                             <div class="text-center"><button type="submit" class="input-btn">Entrar</button></div>
+                </form>
+
             </div>
         </section>
     </div>
@@ -232,6 +253,8 @@ Bienvenidos a notAll!
         <div class="container">
             <div class="footer-logo"><a href="#"><img src="img/footer-logo.png" alt=""></a></div>
             <span class="copyright">&copy; NotAll. Todos Los Derechos Reservados</span>
+            <span class="copyright">&copy; 2017 Linares, Jaén (España)</span>
+
             <div class="credits">
                 <!--
                     All the links in the footer should remain intact.
@@ -340,5 +363,18 @@ Bienvenidos a notAll!
         });
 
     </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 {% endblock %}
 
