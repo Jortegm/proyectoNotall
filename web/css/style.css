@@ -7,7 +7,8 @@
 
 /* CSS Document */
 
-/* Float Elements 
+/* Float Elements
+
 ---------------------------------*/
 .fl-lt {float:left;}
 .fl-rt {float:right;}
@@ -94,7 +95,10 @@ p{
 
 /* Header Styles
 ---------------------------------*/
-
+@font-face {
+	font-family: titulo;
+	src: url(/fonts/Sensations.ttf);
+}
 .header{
 	text-align:center;
 	background:url(../img/violin.png) left top repeat;
@@ -105,8 +109,9 @@ p{
 	margin:0 auto 35px;
 }
 .header h1{
-	font-family: 'Montserrat',sans-serif;
-	font-size:50px;
+
+	font-family: titulo;
+	font-size:150px;
 	font-weight:400;
 	letter-spacing: -1px;
 	margin:0 0 22px 0 ;
@@ -901,7 +906,7 @@ button {
 .cancelbtn,.signupbtn {float:left;width:50%}
 
 /* Add padding to container elements */
-.container {
+.container1 {
 	padding: 16px;
 }
 

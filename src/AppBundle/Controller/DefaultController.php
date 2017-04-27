@@ -17,6 +17,13 @@ class DefaultController extends Controller {
         return $this->render('notall.html.twig');
     }
 
+    /**
+     * @Route("/principal", name="principal")
+     */
+    public function principalAction(Request $request){
+        // replace this example code with whatever you need
+        return $this->render('plantilla.html.twig');
+    }
 
     /**
      * @Route("/servicios", name="Servicios")
@@ -27,11 +34,11 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/servicios", name="ParUsar")
+     * @Route("/para", name="Para")
      */
     public function parusarAction(Request $request){
         // replace this example code with whatever you need
-        return $this->render('parusar/parusar.html.twig');
+        return $this->render('para/para.htmil.twig');
     }
 
 }
