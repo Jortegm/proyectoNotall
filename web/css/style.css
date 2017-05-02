@@ -69,7 +69,8 @@ h2{
 	font-weight:700;
 	letter-spacing: -1px;
 	margin:0 0 15px 0;
-	text-align:center;
+	/*text-align:center;*/
+	text-align:left;
 	text-transform:uppercase;
 }
 h3{
@@ -85,7 +86,8 @@ h6{
 	color:#888888;
 	font-family: 'Open Sans', sans-serif;
 	font-weight:400;
-	text-align:center;
+	/*text-align:center;*/
+	text-align:justify;
 	margin:0 0 60px 0;
 }
 p{
@@ -101,10 +103,8 @@ p{
 }
 .header{
 	text-align:center;
-	background:url(../img/violin.png) left top repeat;
+	background:url(../img/violin.png) ;
 	padding:280px 0;
-	width: 100%;
-	height: 100%;
 }
 .logo{
 	width:130px;
@@ -189,13 +189,13 @@ color: #fff;
 }
 .main-nav{
 	text-align:center;
-	margin:10px 0 0px;
+	margin:10px 0 10px;
 	padding:0;
 	list-style:none;
 }
 .main-nav li{
 	display:inline;
-	margin:0 1px;
+	/*margin:0 1px;*/
 }
 .main-nav li a{
 	/*display:inline-block;*/
@@ -210,13 +210,13 @@ color: #fff;
 	-webkit-transition:all 0.3s ease-in-out;
 }
 
-.main-nav li a:hover{ 
+.main-nav li a:hover{
 	text-decoration:none;
 	color: #7cc576;
 }
 
-.small-logo{ 
-	padding:0 32px;
+.small-logo{
+	/*padding:0 32px;*/
 }
 
 .main-section{
@@ -246,7 +246,7 @@ color: #fff;
 	line-height:38px;
 }
 .service-list-col2{
-	overflow:hidden;	
+	overflow:hidden;
 }
 .main-section.alabaster{
 	background:#fafafa;
@@ -310,11 +310,11 @@ color: #fff;
 	-webkit-transition:all 0.3s ease-in-out;
 	display: none;
 }
-.Learn-More i{ 
+.Learn-More i{
 	padding-right:15px;
 }
 
-.Learn-More:hover, .Learn-More:focus{ 
+.Learn-More:hover, .Learn-More:focus{
 	text-decoration:none;
 	color: #111;
 }
@@ -371,7 +371,7 @@ color: #fff;
 	margin-bottom:25px;
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
-	-webkit-transition:all 0.3s ease-in-out;	
+	-webkit-transition:all 0.3s ease-in-out;
 }
 
 .Portfolio-box img:hover {
@@ -524,7 +524,7 @@ border: 2px solid #fff;
 	border-radius:50%;
 	box-shadow:0px 0px 0px 7px rgba(241,241,241,0.80);
 	margin:7px 7px 25px 7px;
-	
+
 }
 .team-leader-shadow{
 	transition:all 0.3s ease-in-out;
@@ -575,7 +575,7 @@ border: 2px solid #fff;
 	font-family: 'FontAwesome';
 	display:inline-block;
 	font-size:28px;
-	color:#fff;	
+	color:#fff;
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
@@ -714,7 +714,7 @@ border: 2px solid #fff;
 	border: 1px solid #7cc576;
 	outline:0;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);	
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
 }
 
@@ -833,48 +833,48 @@ border: 2px solid #fff;
 
 /* Animation Timers
 ---------------------------------*/
-.delay-02s { 
-	animation-delay: 0.2s; 
-	-webkit-animation-delay: 0.2s; 
+.delay-02s {
+	animation-delay: 0.2s;
+	-webkit-animation-delay: 0.2s;
 }
-.delay-03s { 
-	animation-delay: 0.3s; 
-	-webkit-animation-delay: 0.3s; 
+.delay-03s {
+	animation-delay: 0.3s;
+	-webkit-animation-delay: 0.3s;
 }
-.delay-04s { 
-	animation-delay: 0.4s; 
-	-webkit-animation-delay: 0.4s; 
-}
-
-.delay-05s { 
-	animation-delay: 0.5s; 
-	-webkit-animation-delay: 0.5s; 
-}
-.delay-06s { 
-	animation-delay: 0.6s; 
-	-webkit-animation-delay: 0.6s; 
+.delay-04s {
+	animation-delay: 0.4s;
+	-webkit-animation-delay: 0.4s;
 }
 
-.delay-07s { 
-	animation-delay: 0.7s; 
-	-webkit-animation-delay: 0.7s; 
+.delay-05s {
+	animation-delay: 0.5s;
+	-webkit-animation-delay: 0.5s;
 }
-.delay-08s { 
-	animation-delay: 0.8s; 
-	-webkit-animation-delay: 0.8s; 
+.delay-06s {
+	animation-delay: 0.6s;
+	-webkit-animation-delay: 0.6s;
 }
 
-.delay-09s { 
-	animation-delay: 0.9s; 
-	-webkit-animation-delay: 0.9s; 
+.delay-07s {
+	animation-delay: 0.7s;
+	-webkit-animation-delay: 0.7s;
 }
-.delay-1s { 
-	animation-delay: 1s; 
-	-webkit-animation-delay: 1s; 
+.delay-08s {
+	animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
 }
-.delay-12s { 
-	animation-delay: 1.2s; 
-	-webkit-animation-delay: 1.2s; 
+
+.delay-09s {
+	animation-delay: 0.9s;
+	-webkit-animation-delay: 0.9s;
+}
+.delay-1s {
+	animation-delay: 1s;
+	-webkit-animation-delay: 1s;
+}
+.delay-12s {
+	animation-delay: 1.2s;
+	-webkit-animation-delay: 1.2s;
 }
 
 /******************************************modal style**********************************************/

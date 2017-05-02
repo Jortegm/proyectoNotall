@@ -9,32 +9,29 @@
                 <li class="small-logo"><a href="#header"><img src="img/mozart.png" alt=""></a></li>
                 <li><a href="{{ path('principal')}}#team">Equipo</a></li>
                 <li><a href="{{ path('principal')}}#contact">Registrate</a></li>
-            </ul>
-            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; border-radius: 28px; background-color:#5fa8de;	margin-top: -5.5%;
-;float:right">Entrar</button>
-            <div id="id01" class="modal"style="padding: 10%;">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-                <form class="modal-content animate" action="/action_page.php">
-                    <h2 style="margin-top: 3%; font-family:titulo; font-size:70px; text-transform: lowercase;">introduce tus datos</h2> <img src="{{ asset('img/mozart.png') }}" alt="" style=" float: right;
-    margin-top: -12%;margin-right: 20%; "></a>
-                    <div class="container1">
-                        <label><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-
-                        <label><b>Contraseña</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <input type="checkbox" checked="checked"> Recordarme
-                        <p><a href="#">Terminos & Privacidad</a>.</p>
-
-                        <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
-                            <button type="submit" class="signupbtn">Entrar</button>
-                        </div>
+                <li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto; border-radius: 28px; background-color:#5fa8de;">Entrar</button>
+                    <div id="id01" class="modal"style="padding: 10%;">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                        <form class="modal-content animate" action="/action_page.php">
+                            <h2 style="margin-top: 3%; font-family:titulo; font-size:70px; text-transform: lowercase;">introduce tus datos</h2> <img src="{{ asset('img/mozart.png') }}" alt="" style=" float: right;
+        margin-top: -12%;margin-right: 20%; "></a>
+                            <div class="container1">
+                                <label><b>Email</b></label>
+                                    <input type="text" placeholder="Enter Email" name="email" required>
+                                <label><b>Contraseña</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                <input type="checkbox" checked="checked"> Recordarme
+                                <p><a href="#">Terminos & Privacidad</a>.</p>
+                                <div class="clearfix">
+                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+                                    <button type="submit" class="signupbtn">Entrar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-            <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+                    <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+                </li>
+            </ul>
         </div>
     </nav><!--main-nav-end-->
 
@@ -43,7 +40,7 @@
     <section class="main-section" id="service"><!--main-section-start-->
         <div class="container" >
                <h2>Servicios</h2>
-               <h6>NotAll ofrece un gran abanico de posibilidades para crear partituras </h6>
+               <h6>Zaide ofrece un gran abanico de posibilidades para crear partituras </h6>
                    <div class="row">
                        <div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
                             <div class="service-list">
@@ -51,7 +48,7 @@
                                     <i class="fa fa-music"></i>
                                 </div>
                                 <div class="service-list-col2">
-                                    <h3>NotAll ofrece posibilidades en la composición de música online.</h3>
+                                    <h3>Zaide ofrece posibilidades en la composición de música online.</h3>
                                 </div>
                             </div>
                             <div class="service-list">
@@ -67,7 +64,7 @@
                                     <i class="fa fa-group"></i>
                                 </div>
                                 <div class="service-list-col2">
-                                    <h3>No IMPORTA el dónde sino el QUÉ</h3>
+                                    <h3>No IMPORTA el DÓNDE sino el QUÉ</h3>
                                 </div>
                             </div>
                             <div class="service-list">
@@ -105,7 +102,7 @@
      <section class="main-section paddind" id="Portfolio"><!--main-section-start-->
         <div class="container">
         <h2>Partituras </h2>
-        <h6>En NotAll creemos que la música es nuestra banda sonora, por ellos todos aquellos participantes pueden dejar sus creaciónes para que todos podamos disfrutarlas.</h6>
+        <h6>En Zaide creemos que la música es nuestra banda sonora, por ellos todos aquellos participantes pueden dejar sus creaciónes para que todos podamos disfrutarlas.</h6>
         <h6> Partituras más vistas</h6>
             <div class="portfolioContainer wow fadeInUp delay-04s">
                 <div class=" Portfolio-box printdesign">
@@ -149,7 +146,7 @@
      <section class="main-section team" id="team"><!--main-section team-start-->
         <div class="container">
             <h2>Equipo</h2>
-            <h6>Equipo creador de NotAll.</h6>
+            <h6>Equipo creador de Zaide.</h6>
                 <div class="team-leader-box">
                     <div class="team-leader  wow fadeInDown delay-06s">
                         <div class="team-leader-shadow"><a href="#"></a></div>
@@ -228,7 +225,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo"><a href="#"><img src="{{ asset('img/small-logo.png') }}" alt=""></a></div>
-            <span class="copyright">&copy; NotAll. Todos Los Derechos Reservados</span>
+            <span class="copyright">&copy; Zaide. Todos Los Derechos Reservados</span>
             <span class="copyright">&copy; 2017 Linares, Jaén (España)</span>
 
             <div class="credits">
