@@ -6,6 +6,8 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\Usuarios;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Form\UsuariosType;
+
 
 class UserController extends Controller {
 
@@ -24,7 +26,22 @@ class UserController extends Controller {
 
     }
 
+    /** Funcion que añada usuarios a la base de datos.
+     * @return Response
+     */
+    public function addUserAction() {
+        $user = new Usuarios();
+        $form = $this->createCreateForm($user);
 
+        return $this->render('UsuariosBundle:User:add.html.twig', array($form->createView()));
+    }
 
+    private function createCreateForm($user, $entity) {
+        $form = $this->createForm(new UsuariosType(), $entity, array(
+                                    'action'=> $this->generateUrl('usuarios_create'),
+                                    'method'=>'POST')
+                                  );
+        return $form;
+    }
 
 }
