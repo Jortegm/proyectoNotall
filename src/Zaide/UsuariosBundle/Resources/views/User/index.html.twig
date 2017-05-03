@@ -1,0 +1,242 @@
+{% extends '::plantillaAdminis.html.twig' %}
+
+
+{% block body %}
+
+    <body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="#" class="logo">Zaide <span class="lite">Admin</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                <!--  search form start -->
+                <ul class="nav top-menu">
+                    <li>
+                        <form class="navbar-form">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </form>
+                    </li>
+                </ul>
+                <!--  search form end -->
+            </div>
+
+            <div class="top-nav notification-row">
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+
+                    <!-- task notificatoin start -->
+                    <li id="task_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-task-l"></i>
+                            <span class="badge bg-important"></span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+
+                        </ul>
+                    </li>
+                    <!-- task notificatoin end -->
+                    <!-- inbox notificatoin start-->
+                    <li id="mail_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-envelope-l"></i>
+                            <span class="badge bg-important"></span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+
+                        </ul>
+                    </li>
+                    <!-- inbox notificatoin end -->
+                    <!-- alert notification start-->
+                    <li id="alert_notificatoin_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="icon-bell-l"></i>
+                            <span class="badge bg-important"></span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <div class="notify-arrow notify-arrow-blue"></div>
+                        </ul>
+                    </li>
+                    <!-- alert notification end-->
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="{{ asset('img/small-logo.png') }} " height="30px" width="30px">
+                            </span>
+                            <span class="username">Admin</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
+                            </li>
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                            <li>
+                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                            <li>
+                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!--overview start-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fa fa-laptop"></i> Usuarios</h3>
+
+                    </div>
+                </div>
+
+
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>ID USUARIO</th>
+                            <th>NOMBRE </th>
+                            <th>APELLIDOS</th>
+                            <th>CORREO Electronico</th>
+                            <th>TIPO</th>
+                            <th>NIVEL</th>
+                            <th>PAÍS</th>
+                            <th>FECHA DE ALTA</th>
+                            <th>FECHA DE ACTUALIZACIÓN</th>
+                            <th>BIOGRAFIA</th>
+                            <th>NICK USUARIO</th>
+                            <th>CONTRASEÑA DE USUARIO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    {%  for usuario in user %}
+                        <tbody>
+                            <tr>
+                                <td>{{ usuario.id }}</td>
+                                <td>{{ usuario.nombreUsuario }}</td>
+                                <td>{{ usuario.apellidoUsuario }}</td>
+                                <td>{{ usuario.correoUsuario }}</td>
+                                <td>
+                                    {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
+                                        <strong style="color:red">ADMINISTRADOR</strong>
+                                    {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
+                                        <strong style="color:blue">USUARIO</strong>
+                                    {% endif %}
+                                <td>{{ usuario.nivelUsuario }}</td>
+                                <td>{{ usuario.pais }}</td>
+                                <td>{{ usuario.fechaAlta | date('d-m-Y ') }}</td>
+                                <td>{{ usuario.fechaActualizacion | date('d-m-Y') }}</td>
+                                <td>{{ usuario.biografia }}</td>
+                                <td>{{ usuario.nickUsuario }}</td>
+                                <td>{{ usuario.passwdUsuario }}</td>
+                                <td>
+                                    <a href="#">Vista de Usuario</a><br/>
+                                    <a href="#">Editar Usuario</a><br/>
+                                    <a href="#">Eliminar Usuario</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    {%  endfor %}
+                </table>
+
+
+
+
+
+
+
+
+            </section>
+
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+
+    <!-- javascripts -->
+
+    <script>
+
+        //knob
+        $(function() {
+            $(".knob").knob({
+                'draw' : function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function() {
+            $("#owl-slider").owlCarousel({
+                navigation : true,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem : true
+
+            });
+        });
+
+        //custom select box
+
+        $(function(){
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function(){
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function(e, el, code){
+                    el.html(el.html()+' (GDP - '+gdpData[code]+')');
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+
+
+{% endblock %}

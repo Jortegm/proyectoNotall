@@ -29,11 +29,13 @@ class Usuarios {
      */
     private $apellidoUsuario;
 
+
+
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      * @var string
      */
-    private $correoUsuario;
+    private $Tipo_de_Usuario;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -65,12 +67,37 @@ class Usuarios {
      */
     private $biografia;
 
+
+
+    /**
+     * @ORM\Column(type="date", length=100)
+     * @var \DateTime
+     */
+    private $fechaAlta;
+
+    /**
+     * @ORM\Column(type="date", length=100)
+     * @var \DateTime
+     */
+    private $fechaActualizacion;
+
+
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Partitura", mappedBy="PartituraUsuario")
      * @var Partitura
      * @ORM\JoinColumn(nullable=false)
     */
     private $UsuarioPartitura;
+
+
+
+
+
+
+
+
+
     /**
      * Constructor
      */
@@ -160,6 +187,29 @@ class Usuarios {
     {
         return $this->correoUsuario;
     }
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @var string
+     */
+    private $correoUsuario;
+
+    /**
+     * @return string
+     */
+    public function getTipoDeUsuario()
+    {
+        return $this->Tipo_de_Usuario;
+    }
+
+    /**
+     * @param string $Tipo_de_Usuario
+     */
+    public function setTipoDeUsuario($Tipo_de_Usuario)
+    {
+        $this->Tipo_de_Usuario = $Tipo_de_Usuario;
+    }
+
 
     /**
      * Set nivelUsuario
@@ -304,6 +354,39 @@ class Usuarios {
     {
         $this->UsuarioPartitura->removeElement($usuarioPartitura);
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFechaAlta()
+    {
+        return $this->fechaAlta;
+    }
+
+    /**
+     * @param \DateTime $fechaAlta
+     */
+    public function setFechaAlta($fechaAlta)
+    {
+        $this->fechaAlta = $fechaAlta;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFechaActualizacion()
+    {
+        return $this->fechaActualizacion;
+    }
+
+    /**
+     * @param \DateTime $fechaActualizacion
+     */
+    public function setFechaActualizacion($fechaActualizacion)
+    {
+        $this->fechaActualizacion = $fechaActualizacion;
+    }
+
 
     /**
      * Get usuarioPartitura

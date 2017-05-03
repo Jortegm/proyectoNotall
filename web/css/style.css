@@ -60,6 +60,7 @@ body {
 	font-size:14px;
 	font-weight:normal;
 	color:#888888;
+	background-color: #1E2A22;
 	margin:0;
 }
 h2{
@@ -104,6 +105,8 @@ p{
 .header{
 	text-align:center;
 	background:url(../img/violin.png) ;
+	background-repeat: no-repeat;
+	background-position: center ;
 	padding:280px 0;
 }
 .logo{
