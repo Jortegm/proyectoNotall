@@ -24,7 +24,9 @@
 
 </head>
 <body>
-{%  block body %}{% endblock %}
+{%  block body %}
+    {{ include('plantillaAdminis.html.twig') }}
+{% endblock %}
 <script type="text/javascript" src="{{ asset('Administrador/js/additional-methods.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('Administrador/js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('Administrador/js/bootstrap-switch.js') }}"></script>

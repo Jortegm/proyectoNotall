@@ -9,6 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller {
 
+
+
+    public function principalAdminAction() {
+        // replace this example code with whatever you need
+        return $this->render('@Usuarios/User/PrincipalAdmin.html.twig');
+    }
+
     public function indexAction() {
         $em = $this-> getDoctrine()->getManager();
         $users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
