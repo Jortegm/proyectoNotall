@@ -4,12 +4,26 @@
 {% block body %}
     {{ parent() }}
     <body>
-
-        <!--header end-->
-
-        <!--sidebar start-->
-        <!--sidebar end-->
-
+        <div class="container">
+            {% if app.session.flashBag.has('estado') %}
+                {% set mensajes = app.session.flashBag.get('estado') %}
+                {% for mensaje in mensajes %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                        {{ mensaje }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if app.session.flashBag.has('error') %}
+                {% set mensajes = app.session.flashBag.get('error') %}
+                {% for mensaje in mensajes %}
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                        {{ mensaje }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -17,6 +31,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header"><i class="fa fa-laptop"></i> Usuarios</h3>
+                        <div id = "volver" style ="float:right;margin-top:-5%;">
+                            <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
+                        </div>
 
                     </div>
                 </div>
@@ -51,16 +68,16 @@
                                 <td>{{ usuario.correoUsuario }}</td>
                                 <td>
                                     {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
-                                        <strong style="color:red">ADMINISTRADOR</strong>
+                                        <strong style="color:red">ROLE_ADMIN</strong>
                                     {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
-                                        <strong style="color:blue">USUARIO</strong>
+                                        <strong style="color:blue">ROLE_USER</strong>
                                     {% endif %}
                                 <td>
-                                    {%  if usuario.nivelUsuario == 'Novato' %}
+                                    {%  if usuario.nivelUsuario == 'NOVATO' %}
                                         <strong style="color:#62B0A7">Novato</strong>
-                                    {% elseif usuario.nivelUsuario == 'Intermedio' %}
+                                    {% elseif usuario.nivelUsuario == 'INTERMEDIO' %}
                                         <strong style="color:#84B062">Intermedio</strong>
-                                        {% elseif usuario.nivelUsuario == 'Experto' %}
+                                        {% elseif usuario.nivelUsuario == 'EXPERTO' %}
                                         <strong style="color:#B09562">Experto</strong>
                                     {% endif %}
                                 <td>{{ usuario.pais }}</td>
@@ -72,8 +89,8 @@
                                 <td>
 
                                         <a href="#"><button class="btn btn-link">Vista de Usuario</button></a><br/>
-                                        <a href="#"><button class="btn btn-link" style="color:green">Editar Usuario</button></a><br/>
-                                        <a href="#"><button class="btn btn-link" style="color:red">Eliminar Usuario</button></a>
+                                        <a href="{{ path('usuarios_edit', {id: usuario.id }) }}"><button class="btn btn-link" style="color:green">Editar Usuario</button></a><br/>
+                                        <a href="{{ path('usuarios_delete', {id: usuario.id }) }}    "><button class="btn btn-link" style="color:red">Eliminar Usuario</button></a>
 
                                 </td>
                             </tr>
@@ -92,8 +109,11 @@
 
         <!--main content end-->
     </section>
-    <!-- container section start -->
-
+        <!-- pagination start -->
+            {#<div class="navigation">#}
+                {#{{  knp_pagination_render (pagination) }}#}
+            {#</div>#}
+        <!-- Finish pagination -->
     <!-- javascripts -->
 
     <script>

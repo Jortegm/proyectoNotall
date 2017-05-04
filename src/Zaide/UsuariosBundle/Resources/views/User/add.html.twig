@@ -3,19 +3,75 @@
 {% block body %}
     {{ parent() }}
 <div class="col-lg-12">
-    <section class="panel">
-        <header class="panel-heading">
-                Nuevo Usuario
-        </header>
-              {{ form_start(form, { 'attr' : {'role' : 'form'} }) }}
-        <div class="form-group">
-            {{ form_label(form.nombre_usuario) }}
-            {{ form_widget(form.nombre_usuario, {'attr' : {' class' : 'form-control', 'placerholder' : 'Nombre'} }) }}
-            <span class="text-danger">{{ form_errors(form.nombre_usuario) }}</span>
 
+    <div id ="row">
 
-            {{ form_end(form) }}
-
+        <h1>Nuevo Usuario</h1>
+        {{ form_start(form) }}
+        <br/><br>
+        <div id = "volver" style ="float:right;margin-top:-5%;">
+            <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
         </div>
-    </section>
+
+        <div class="form-group">
+            {{ form_label(form.nombreUsuario) }}
+            {{ form_widget(form.nombreUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu Nombre'} }) }}
+            <span class="text-danger">{{ form_errors(form.nombreUsuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.apellidoUsuario) }}
+            {{ form_widget(form.apellidoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tus Apellidos'} }) }}
+            <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.Tipo_de_Usuario) }}
+            {{ form_widget(form.Tipo_de_Usuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Tipo de Usuario'} }) }}
+            <span class="text-danger">{{ form_errors(form.Tipo_de_Usuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nivelUsuario) }}
+            {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Nivel de Usuario'} }) }}
+            <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.Pais) }}
+            {{ form_widget(form.Pais, {'attr' : {' class' : 'form-control', 'placeholder' : 'País de Procedencia'} }) }}
+            <span class="text-danger">{{ form_errors(form.Pais) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nickUsuario) }}
+            {{ form_widget(form.nickUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe un nick para el usuario '} }) }}
+            <span class="text-danger">{{ form_errors(form.nickUsuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.passwdUsuario) }}
+            {{ form_widget(form.passwdUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe la contraseña para el Usuario'} }) }}
+            <span class="text-danger">{{ form_errors(form.passwdUsuario) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.biografia) }}
+            {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe una breve biografía '} }) }}
+            <span class="text-danger">{{ form_errors(form.biografia) }} </span>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.correoUsuario) }}
+            {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu correo electrónico'} }) }}
+            <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
+        </div>
+
+
+
+        {{ form_end(form) }}
+    </div>
+
 </div>
+
+{% endblock %}
