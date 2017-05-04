@@ -3,11 +3,14 @@
 namespace Zaide\UsuariosBundle\Controller;
 
 use AppBundle\Entity\Usuarios;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UsuariosType;
 use AppBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class UserController extends Controller {
 
@@ -18,11 +21,20 @@ class UserController extends Controller {
         return $this->render('@Usuarios/User/PrincipalAdmin.html.twig');
     }
 
-    public function indexAction() {
+    public function indexAction(Request $request) {
+        /** @var EntityManager $em */
         $em = $this-> getDoctrine()->getManager();
+        $users = $em->createQueryBuilder()
+            ->select ('u')
+            ->from ('AppBundle:Usuarios', 'u')
+            ->getQuery ()
+            ->getResult();
+
+        $paginacion = $this->get('knp_paginator');
+        $pagination = $paginacion->paginate($users, $request->query->getInt('page', 1), 3);
         $users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
 
-        return $this->render('UsuariosBundle:User:index.html.twig', array('user' => $users));
+        return $this->render('UsuariosBundle:User:index.html.twig', array('pagination' => $pagination));
 
     }
 
@@ -49,21 +61,31 @@ class UserController extends Controller {
         return $this->render('UsuariosBundle:User:add.html.twig', ['form' => $form->createView()]);
     }
 
-//    public function editAction (Usuarios $usuarios) {
-//        em = $this->getDoctrine()->getManager();
-//        $em->edit($usuarios);
-//        $em->flush();
-//        $this->addFlash('estado', 'Usuario modificado con éxito');
-//
-//
-//        return $this->redirectToRoute('usuarios_registro');
-//
-//    }
-//
-//
-//    }
+    public function editAction(Request $request) {
+        /** @var EntityManager $em */
+        $usuario = new Usuarios();
+        $em = $this->getDoctrine()->getManager();
 
+        if (null == $usuario) {
+            $categoria = new Categoria();
+            $em->persist($categoria);
+        }
 
+        $form = $this->createForm(CategoriaType::class, $categoria);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            $this->addFlash('estado', 'Cambios guardados con éxito');
+            return $this->redirectToRoute('listadoCategorias',['categoria'=>$categoria->getId()]);
+        }
+
+        return $this->render('categorias/form.html.twig', [
+            'categoria' => $categoria,
+            'form' => $form->createView()
+        ]);
+    }
 
 
     public function deleteAction(Usuarios $usuarios) {

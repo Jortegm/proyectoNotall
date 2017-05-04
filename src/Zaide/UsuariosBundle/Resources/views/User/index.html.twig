@@ -32,7 +32,7 @@
                     <div class="col-lg-12">
                         <h3 class="page-header"><i class="fa fa-laptop"></i> Usuarios</h3>
                         <div id = "volver" style ="float:right;margin-top:-5%;">
-                            <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
+                           <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
                         </div>
 
                     </div>
@@ -40,79 +40,71 @@
                 <div>
                 <a href="{{ path('usuarios_add') }}" class="btn btn-lg btn-success"><span class="fa fa-plus-circle"></span> Nuevo Usuario</a>
                 </div>
+                <br/><br/>
 
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>ID USUARIO</th>
-                            <th>NOMBRE </th>
-                            <th>APELLIDOS</th>
-                            <th>CORREO Electronico</th>
-                            <th>TIPO</th>
-                            <th>NIVEL</th>
-                            <th>PAÍS</th>
-                            <th>FECHA DE ALTA</th>
-                            <th>FECHA DE ACTUALIZACIÓN</th>
-                            <th>BIOGRAFIA</th>
-                            <th>NICK USUARIO</th>
-                            <th>CONTRASEÑA DE USUARIO</th>
-                            <th>ACCIONES</th>
-                        </tr>
-                    </thead>
-                    {%  for usuario in user %}
-                        <tbody>
-                            <tr>
-                                <td>{{ usuario.id }}</td>
-                                <td>{{ usuario.nombreUsuario }}</td>
-                                <td>{{ usuario.apellidoUsuario }}</td>
-                                <td>{{ usuario.correoUsuario }}</td>
-                                <td>
-                                    {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
-                                        <strong style="color:red">ROLE_ADMIN</strong>
-                                    {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
-                                        <strong style="color:blue">ROLE_USER</strong>
-                                    {% endif %}
-                                <td>
-                                    {%  if usuario.nivelUsuario == 'NOVATO' %}
-                                        <strong style="color:#62B0A7">Novato</strong>
-                                    {% elseif usuario.nivelUsuario == 'INTERMEDIO' %}
-                                        <strong style="color:#84B062">Intermedio</strong>
-                                        {% elseif usuario.nivelUsuario == 'EXPERTO' %}
-                                        <strong style="color:#B09562">Experto</strong>
-                                    {% endif %}
-                                <td>{{ usuario.pais }}</td>
-                                <td>{{ usuario.fechaAlta | date('d-m-Y ') }}</td>
-                                <td>{{ usuario.fechaActualizacion | date('d-m-Y') }}</td>
-                                <td>{{ usuario.biografia }}</td>
-                                <td>{{ usuario.nickUsuario }}</td>
-                                <td>{{ usuario.passwdUsuario }}</td>
-                                <td>
-
-                                        <a href="#"><button class="btn btn-link">Vista de Usuario</button></a><br/>
-                                        <a href="{{ path('usuarios_edit', {id: usuario.id }) }}"><button class="btn btn-link" style="color:green">Editar Usuario</button></a><br/>
+                    <section class="panel">
+                        <header class="panel-heading">
+                           Número de Usuarios: {{ pagination.getTotalItemCount }}
+                        </header>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th> {{ knp_pagination_sortable(pagination,'ID_USUARIO', 'u.id' ) }}</th>
+                                    <th>NOMBRE </th>
+                                    <th>APELLIDOS</th>
+                                    <th>CORREO Electronico</th>
+                                    <th>TIPO</th>
+                                    <th>NIVEL</th>
+                                    <th>PAÍS</th>
+                                    <th>FECHA DE ALTA</th>
+                                    <th>FECHA DE ACTUALIZACIÓN</th>
+                                    <th>BIOGRAFIA</th>
+                                    <th>NICK USUARIO</th>
+                                    <th>CONTRASEÑA DE USUARIO</th>
+                                    <th>ACCIONES</th>
+                                </tr>
+                            </thead>
+                        {%  for usuario in pagination %}
+                            <tbody>
+                                <tr>
+                                    <td>{{ usuario.id }}</td>
+                                    <td>{{ usuario.nombreUsuario }}</td>
+                                    <td>{{ usuario.apellidoUsuario }}</td>
+                                    <td>{{ usuario.correoUsuario }}</td>
+                                    <td>
+                                        {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
+                                            <strong style="color:red">ROLE_ADMIN</strong>
+                                        {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
+                                            <strong style="color:blue">ROLE_USER</strong>
+                                        {% endif %}
+                                    <td>
+                                        {%  if usuario.nivelUsuario == 'NOVATO' %}
+                                            <strong style="color:#62B0A7">Novato</strong>
+                                        {% elseif usuario.nivelUsuario == 'INTERMEDIO' %}
+                                            <strong style="color:#84B062">Intermedio</strong>
+                                            {% elseif usuario.nivelUsuario == 'EXPERTO' %}
+                                            <strong style="color:#B09562">Experto</strong>
+                                        {% endif %}
+                                    <td>{{ usuario.pais }}</td>
+                                    <td>{{ usuario.fechaAlta | date('d-m-Y ') }}</td>
+                                    <td>{{ usuario.fechaActualizacion | date('d-m-Y') }}</td>
+                                    <td>{{ usuario.biografia }}</td>
+                                    <td>{{ usuario.nickUsuario }}</td>
+                                    <td>{{ usuario.passwdUsuario }}</td>
+                                    <td>
+                                        <a href="{{ path('usuarios_edit', {id: usuario.id }) }}"><button class="btn btn-link" style="color:#5eb5e0">Editar Usuario</button></a><br/>
                                         <a href="{{ path('usuarios_delete', {id: usuario.id }) }}    "><button class="btn btn-link" style="color:red">Eliminar Usuario</button></a>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    {%  endfor %}
-                </table>
-
-
-
-
-
-
-
-
+                                    </td>
+                                </tr>
+                             </tbody>
+                         {%  endfor %}
+                         </table>
+                </section>
             </section>
-
-        <!--main content end-->
-    </section>
         <!-- pagination start -->
-            {#<div class="navigation">#}
-                {#{{  knp_pagination_render (pagination) }}#}
-            {#</div>#}
+            <div class="navigation">
+                {{  knp_pagination_render (pagination) }}
+            </div>
         <!-- Finish pagination -->
     <!-- javascripts -->
 
