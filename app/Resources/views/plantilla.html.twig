@@ -8,29 +8,10 @@
                 <li><a href="{{ path('principal')}}#Portfolio">Partituras </a></li>
                 <li class="small-logo"><a href="#header"><img src="img/mozart.png" alt=""></a></li>
                 <li><a href="{{ path('principal')}}#team">Equipo</a></li>
-                <li><a href="{{ path('principal')}}#contact">Registrate</a></li>
-                <li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto; border-radius: 28px; background-color:#5fa8de;">Entrar</button>
-                    <div id="id01" class="modal"style="padding: 10%;">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-                        <form class="modal-content animate" action="/action_page.php">
-                            <h2 style="margin-top: 3%; font-family:titulo; font-size:70px; text-transform: lowercase;">introduce tus datos</h2> <img src="{{ asset('img/mozart.png') }}" alt="" style=" float: right;
-        margin-top: -12%;margin-right: 20%; "></a>
-                            <div class="container1">
-                                <label><b>Email</b></label>
-                                    <input type="text" placeholder="Enter Email" name="email" required>
-                                <label><b>Contraseña</b></label>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
-                                <input type="checkbox" checked="checked"> Recordarme
-                                <p><a href="#">Terminos & Privacidad</a>.</p>
-                                <div class="clearfix">
-                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
-                                    <button type="submit" class="signupbtn">Entrar</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-                </li>
+                <li><a href="{{ path('Registro')}}">Registrate</a></li>
+                 <a class="link animated fadeInUp delay-1s servicelink" href="{{ path('Login') }}" style="width:auto; background-color:#5fa8de;  -webkit-border-radius: 28px;
+                 -moz-border-radius:28px ;border-radius: 28px;float: right;">Entrar</a>
+
             </ul>
         </div>
     </nav><!--main-nav-end-->
@@ -165,60 +146,6 @@
         </div>
      </section><!--main-section team-end-->
 
-
-
-    <section class="business-talking"><!--business-talking-start-->
-       <div class="container">
-            <h2>¿¿ COMENZAMOS ??</h2>
-       </div>
-    </section><!--business-talking-end-->
-
-
-    <section class="main-section contact" id="contact">
-        <div class="container">
-            <h2 style="margin-bottom: 5%">Registrate</h2>
-            <div class="row">
-                <form action="" method="post" role="form" class="contactForm">
-                    <div class="col-lg-6 col-sm-7 wow fadeInLeft delay-05s">
-                        <div id="sendmessage">Mensaje enviado. Vamos a tu Escritorio ... </div>
-                         <div id="errormessage"></div>
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control input-text" id="nombre" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control input-text" id="apellidos" placeholder="Tus Apellidos" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control input-text" name="email" id="email" placeholder="Tu Correo" data-rule="email" data-msg="Introduce un email válido" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Localidad" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Provincia" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Pais" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validation"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
-                        <h4> Añade una pequeña biografia sobre tí</h4>
-                        <div class="form-group">
-                            <textarea class="form-control input-text text-area" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Biografía"></textarea>
-                            <div class="validation"></div>
-                        </div>
-                    </div>
-                    <div class="text-center"><button type="submit" class="input-btn">Entrar</button></div>
-                </form>
-            </div>
-        </div>
-    </section>
 
     {% endblock %}
 

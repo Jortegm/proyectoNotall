@@ -12,32 +12,7 @@ Bienvenidos a Zaide!
         <h1 class="animated fadeInDown delay-07s">Bienvenidos a Zaide</h1>
 
         <a class="link animated fadeInUp delay-1s servicelink" href="{{ path('principal') }}">Comenzar</a>
-        <button onclick="document.getElementById('id01').style.display='block'" class="link animated fadeInUp delay-1s servicelink" style="width:auto; background-color:#5fa8de">Entrar</button>
-
-        <div id="id01" class="modal"style="padding: 10%;">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-            <form class="modal-content animate" action="/action_page.php">
-                <h2 style="margin-top: 3%; font-family:titulo; font-size:70px; text-transform: lowercase;">introduce tus datos</h2> <img src="{{ asset('img/mozart.png') }}" alt="" style=" float: right;
-    margin-top: -12%;margin-right: 20%; "></a>
-
-                <div class="container1">
-                    <label><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label><b>Contraseña</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-
-                    <input type="checkbox" checked="checked"> Recordarme
-                    <p><a href="#">Terminos & Privacidad</a>.</p>
-
-                    <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
-                        <button type="submit" class="signupbtn">Entrar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <a class="link animated fadeInUp delay-1s servicelink" href="{{ path('Login') }}" style="width:auto; background-color:#5fa8de">Entrar</a>
     </div>
     </header><!--header-end-->
 

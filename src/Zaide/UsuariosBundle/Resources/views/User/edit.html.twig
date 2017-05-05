@@ -1,0 +1,78 @@
+{% extends '::plantillaAdminis.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <section id="main-content">
+        <section class="wrapper">
+        <!--overview start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-pencil-square-o"></i> Modificar Usuarios</h3>
+                {{ form_start(form) }}
+            <br/><br>
+                    <div id = "volver" style ="float:right;margin-top:-5%;">
+                        <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
+                    </div>
+
+            <div class="form-group">
+                {{ form_label(form.nombreUsuario) }}
+                {{ form_widget(form.nombreUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.nombreUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.apellidoUsuario) }}
+                {{ form_widget(form.apellidoUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.Tipo_de_Usuario) }}
+                {{ form_widget(form.Tipo_de_Usuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.Tipo_de_Usuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.nivelUsuario) }}
+                {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.Pais) }}
+                {{ form_widget(form.Pais, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.Pais) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.nickUsuario) }}
+                {{ form_widget(form.nickUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.nickUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.passwdUsuario) }}
+                {{ form_widget(form.passwdUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.passwdUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.biografia) }}
+                {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.biografia) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.correoUsuario) }}
+                {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
+            </div>
+
+
+
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+
+{% endblock %}
