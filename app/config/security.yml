@@ -11,8 +11,6 @@ security:
               class: AppBundle\Entity\Usuarios
               property: nickUsuario
 
-    encoders:
-        AppBundle\Entity\Usuarios: bcrypt
 
     role_hierarchy:
         ROLE_ADMIN: [ROLE_USER]

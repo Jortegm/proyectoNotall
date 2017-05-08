@@ -37,6 +37,16 @@ class DefaultController extends Controller {
     }
 
     /**
+     * @Route("/nociones", name="nociones")
+     */
+    public function nocionesAction(Request $request) {
+        // replace this example code with whatever you need
+        return $this->render('nociones/nociones.html.twig');
+    }
+
+
+
+    /**
      * @Route("/para", name="Para")
      */
     public function parusarAction(Request $request){
@@ -56,11 +66,12 @@ class DefaultController extends Controller {
         if ($forma->isSubmitted() && $forma->isValid()) {
             $user->setFechaAlta(new \DateTime("now"));
             $user->setFechaActualizacion(new \DateTime("now"));
+            $user->setTipoDeUsuario('ROLE_USER');
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
             $this->addFlash('estado', 'Bienvenida');
-            return $this->redirectToRoute('homepage', ['Usuario' => $user->getId()]);
+            return $this->redirectToRoute('/principalUser', ['Usuario' => $user->getId()]);
         }
 
         return $this->render('registro/registro.html.twig', ['form' => $forma->createView()]);
@@ -71,8 +82,6 @@ class DefaultController extends Controller {
      */
     public function loginAction() {
         $helper = $this->get('security.authentication_utils');
-
-
         return $this->render('login/login.html.twig', [
             'error' => $helper->getLastAuthenticationError()
         ]);

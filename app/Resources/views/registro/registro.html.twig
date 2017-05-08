@@ -2,17 +2,18 @@
 
 {% block content %}
     <body>
-        <section class="main-section" id="service"><!--main-section-start-->
+        <section section class="main-section team" id="team" style="padding:10px"><!--main-section team-start-->
+            <br/><br/>
+
+            <div class="container">
+                <h2>Comienza Con Nosotros</h2>
+                <h6>Registrate y comienza a escribir tu musica</h6>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-12">
                         <div class="panel panel-login">
                             <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h1>Registrate to Zaide</h1>
-                                    </div>
-                                </div>
+
                                 <hr>
                             </div>
                             <div class="panel-body">
@@ -30,10 +31,10 @@
                                         <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
                                     </div>
 
-                                    <div class="form-group" style="display: none">
-                                        {{ form_label(form.Tipo_de_Usuario) }}
-                                        {{ form_widget(form.Tipo_de_Usuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Tipo de Usuario', 'value' : 'ROLE_USER'} }) }}
-                                        <span class="text-danger">{{ form_errors(form.Tipo_de_Usuario) }} </span>
+                                    <div class="form-group">
+                                        {{ form_label(form.correoUsuario) }}
+                                        {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu correo electrónico'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
                                     </div>
 
                                     <div class="form-group" >
@@ -65,18 +66,13 @@
                                         {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe una breve biografía '} }) }}
                                         <span class="text-danger">{{ form_errors(form.biografia) }} </span>
                                     </div>
-
-                                    <div class="form-group">
-                                        {{ form_label(form.correoUsuario) }}
-                                        {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu correo electrónico'} }) }}
-                                        <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
-                                    </div>
                                     {{ form_end(form) }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </body>
