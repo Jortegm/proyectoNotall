@@ -1,126 +1,83 @@
 {% extends '::plantilla.html.twig' %}
 
 {% block content %}
-
-<section class="main-section" id="service"><!--main-section-start-->
-            <section class="business-talking"><!--business-talking-start-->
-                <div class="container">
-                    <h2 style="text-align: center">¿¿ COMENZAMOS ??</h2>
-                </div>
-            </section><!--business-talking-end-->
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-pencil"></i> Nuevo Usuario</h3>
-            {{ form_start(forma) }}
-            <br/><br>
-
-            <div class="form-group">
-                {{ form_label(form.nombreUsuario) }}
-                {{ form_widget(form.nombreUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu Nombre'} }) }}
-                <span class="text-danger">{{ form_errors(form.nombreUsuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.apellidoUsuario) }}
-                {{ form_widget(form.apellidoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tus Apellidos'} }) }}
-                <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.Tipo_de_Usuario) }}
-                {{ form_widget(form.Tipo_de_Usuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Tipo de Usuario'} }) }}
-                <span class="text-danger">{{ form_errors(form.Tipo_de_Usuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.nivelUsuario) }}
-                {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Nivel de Usuario'} }) }}
-                <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.Pais) }}
-                {{ form_widget(form.Pais, {'attr' : {' class' : 'form-control', 'placeholder' : 'País de Procedencia'} }) }}
-                <span class="text-danger">{{ form_errors(form.Pais) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.nickUsuario) }}
-                {{ form_widget(form.nickUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe un nick para el usuario '} }) }}
-                <span class="text-danger">{{ form_errors(form.nickUsuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.passwdUsuario) }}
-                {{ form_widget(form.passwdUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe la contraseña para el Usuario'} }) }}
-                <span class="text-danger">{{ form_errors(form.passwdUsuario) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.biografia) }}
-                {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe una breve biografía '} }) }}
-                <span class="text-danger">{{ form_errors(form.biografia) }} </span>
-            </div>
-
-            <div class="form-group">
-                {{ form_label(form.correoUsuario) }}
-                {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu correo electrónico'} }) }}
-                <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
-            </div>
-
-
-
-            {{ form_end(form) }}
-        </div>
-
-
-            <section class="main-section contact" id="contact">
-                <div class="container">
-                    <h2 style="margin-bottom: 5%">Registrate</h2>
-                    <div class="row">
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="col-lg-6 col-sm-7 wow fadeInLeft delay-05s">
-                                <div id="sendmessage">Mensaje enviado. Vamos a tu Escritorio ... </div>
-                                <div id="errormessage"></div>
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control input-text" id="nombre" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                                    <div class="validation"></div>
+    <body>
+        <section class="main-section" id="service"><!--main-section-start-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-login">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h1>Registrate to Zaide</h1>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control input-text" id="apellidos" placeholder="Tus Apellidos" data-rule="minlen:4" data-msg="Introduce al menos 4 carácteres" />
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control input-text" name="email" id="email" placeholder="Tu Correo" data-rule="email" data-msg="Introduce un email válido" />
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Localidad" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Provincia" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Pais" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                    <div class="validation"></div>
+                                <hr>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    {{ form_start(form  ) }}
+                                     <div class="form-group">
+                                        {{ form_label(form.nombreUsuario) }}
+                                        {{ form_widget(form.nombreUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu Nombre'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.nombreUsuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.apellidoUsuario) }}
+                                        {{ form_widget(form.apellidoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tus Apellidos'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group" style="display: none">
+                                        {{ form_label(form.Tipo_de_Usuario) }}
+                                        {{ form_widget(form.Tipo_de_Usuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Tipo de Usuario', 'value' : 'ROLE_USER'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.Tipo_de_Usuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group" >
+                                        {{ form_label(form.nivelUsuario) }}
+                                        {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Nivel de Usuario'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.Pais) }}
+                                        {{ form_widget(form.Pais, {'attr' : {' class' : 'form-control', 'placeholder' : 'País de Procedencia'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.Pais) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.nickUsuario) }}
+                                        {{ form_widget(form.nickUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe un nick para el usuario '} }) }}
+                                        <span class="text-danger">{{ form_errors(form.nickUsuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.passwdUsuario) }}
+                                        {{ form_widget(form.passwdUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe la contraseña para el Usuario'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.passwdUsuario) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.biografia) }}
+                                        {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe una breve biografía '} }) }}
+                                        <span class="text-danger">{{ form_errors(form.biografia) }} </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form.correoUsuario) }}
+                                        {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control', 'placeholder' : 'Escribe tu correo electrónico'} }) }}
+                                        <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
+                                    </div>
+                                    {{ form_end(form) }}
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
-                                <h4> Añade una pequeña biografia sobre tí</h4>
-                                <div class="form-group">
-                                    <textarea class="form-control input-text text-area" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Biografía"></textarea>
-                                    <div class="validation"></div>
-                                </div>
-                            </div>
-                            <div class="text-center"><button type="submit" class="input-btn">Entrar</button></div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
-</section>
-
+            </div>
+        </section>
+    </body>
 {% endblock %}

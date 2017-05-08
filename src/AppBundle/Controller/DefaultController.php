@@ -47,31 +47,47 @@ class DefaultController extends Controller {
     /**
      * @Route("/registro", name="Registro")
      */
-    public function registroAction(Request $request){
-        // replace this example code with whatever you need
+    public function registroAction(Request $request)
+    {
         $user = new Usuarios();
-        $form = $this->createForm(UsuariosType::class, $user);
-        $form->handleRequest($request);
+        $forma = $this->createForm(UsuariosType::class, $user);
+        $forma->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user-> setFechaAlta(new \DateTime("now"));
-            $user ->setFechaActualizacion(new \DateTime("now"));
+        if ($forma->isSubmitted() && $forma->isValid()) {
+            $user->setFechaAlta(new \DateTime("now"));
+            $user->setFechaActualizacion(new \DateTime("now"));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->addFlash('estado', 'Ya formas parte de nosotros, comienza modificando tu perfil y a componer ');
-            return $this->redirectToRoute( 'usuario_alta',['Usuario'=> $user->getId()] );
+            $this->addFlash('estado', 'Bienvenida');
+            return $this->redirectToRoute('homepage', ['Usuario' => $user->getId()]);
         }
-        return $this->render('registro/registro.html.twig');
+
+        return $this->render('registro/registro.html.twig', ['form' => $forma->createView()]);
     }
 
     /**
-     * @Route("/log", name="Login")
+     * @Route("/log", name="login")
      */
-    public function loginAction(Request $request){
-        // replace this example code with whatever you need
-        return $this->render('login/login.html.twig');
+    public function loginAction() {
+        $helper = $this->get('security.authentication_utils');
+
+
+        return $this->render('login/login.html.twig', [
+            'error' => $helper->getLastAuthenticationError()
+        ]);
     }
+
+    /**
+     * @Route("/comprobar", name="comprobar")
+     * @Route("/salir", name="salir")
+     */
+    public function comprobarAction() {
+
+
+    }
+
+
 
 
 

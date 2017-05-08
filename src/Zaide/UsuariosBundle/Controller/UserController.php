@@ -54,11 +54,11 @@ class UserController extends Controller {
                 $em->persist($user);
                 $em->flush();
                 $this->addFlash('estado', 'Usuario Añadido Correctamente');
-                return $this->redirectToRoute( 'homepage',['Usuario'=> $user->getId()] );
+                return $this->redirectToRoute( 'usuarios_registro',['Usuario'=> $user->getId()] );
             }
 
 
-        return $this->render('UsuariosBundle:User:add.html.twig', ['forma' => $forma->createView()]);
+        return $this->render('UsuariosBundle:User:add.html.twig', ['form' => $forma->createView()]);
     }
 
     public function editAction(Request $request) {

@@ -9,6 +9,7 @@ parameters:
     locale: es
 
 framework:
+    translator: ~
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -80,3 +81,4 @@ knp_paginator:
     template:
         pagination: 'KnpPaginatorBundle:Pagination:foundation_v5_pagination.html.twig'     # sliding pagination controls template
         sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' # sort link template
+
