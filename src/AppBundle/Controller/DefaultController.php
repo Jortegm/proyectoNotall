@@ -31,7 +31,8 @@ class DefaultController extends Controller {
     /**
      * @Route("/servicios", name="Servicios")
      */
-    public function serviciosAction(Request $request) {
+    public function serviciosAction(Request $request)
+    {
         // replace this example code with whatever you need
         return $this->render('servicios/servicios.html.twig');
     }
@@ -39,17 +40,24 @@ class DefaultController extends Controller {
     /**
      * @Route("/nociones", name="nociones")
      */
-    public function nocionesAction(Request $request) {
+    public function nocionesAction(Request $request)
+    {
         // replace this example code with whatever you need
         return $this->render('nociones/nociones.html.twig');
     }
 
-
+    /**
+     * @Route("/cuaderno", name="Cuaderno")
+     */
+    public function cuadernoAction(Request $request) {
+            $this->render('pagin/cuaderno.html.twig');
+    }
 
     /**
      * @Route("/para", name="Para")
      */
-    public function parusarAction(Request $request){
+    public function parusarAction(Request $request)
+    {
         // replace this example code with whatever you need
         return $this->render('para/para.htmil.twig');
     }
@@ -71,7 +79,7 @@ class DefaultController extends Controller {
             $em->persist($user);
             $em->flush();
             $this->addFlash('estado', 'Bienvenida');
-            return $this->redirectToRoute('/principalUser', ['Usuario' => $user->getId()]);
+            return $this->redirectToRoute('Cuaderno', ['Usuario' => $user->getId()]);
         }
 
         return $this->render('registro/registro.html.twig', ['form' => $forma->createView()]);
@@ -80,7 +88,8 @@ class DefaultController extends Controller {
     /**
      * @Route("/log", name="login")
      */
-    public function loginAction() {
+    public function loginAction()
+    {
         $helper = $this->get('security.authentication_utils');
         return $this->render('login/login.html.twig', [
             'error' => $helper->getLastAuthenticationError()
@@ -91,10 +100,13 @@ class DefaultController extends Controller {
      * @Route("/comprobar", name="comprobar")
      * @Route("/salir", name="salir")
      */
-    public function comprobarAction() {
+    public function comprobarAction()
+    {
 
 
     }
+
+
 
 
 
