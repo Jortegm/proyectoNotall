@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{#pagina principal y de servicios de la aplicacion#}
 
 {% block body %}
     <nav class="main-nav-outer" id="test"><!--main-nav-start-->
@@ -8,11 +9,11 @@
                 <li><a href="{{ path('nociones')}}">Nociones </a></li>
                 <li><a href="{{ path('principal')}}#Portfolio">Partituras </a></li>
 
-                <li class="small-logo"><a href="#header"><img src="img/mozart.png" alt=""></a></li>
+                <li class="small-logo"><a href="https://www.youtube.com/watch?v=HZkl-07vhbo&t=1162s" target="_blank"><img src="img/mozart.png" alt="Opera de MOZART: ZAIDE" ></a></li>
                 <li><a href="{{ path('principal')}}#team">Equipo</a></li>
                 <li><a href="{{ path('Registro')}}">Registrate</a></li>
-                 <a class="link animated fadeInUp delay-1s servicelink" href="{{ path('login') }}" style="width:auto; background-color:#5fa8de;  -webkit-border-radius: 28px;
-                 -moz-border-radius:28px ;border-radius: 28px;float: right;">Entrar</a>
+                <li><a class="link animated fadeInUp delay-1s servicelink" href="{{ path('login') }}" style="width:auto; background-color:#FFF; border:3px solid #5fa8de; color-interpolation: #000; -webkit-border-radius: 28px;
+                 -moz-border-radius:28px ;border-radius: 28px;float: right;font-size:14px">Entrar</a></li>
 
             </ul>
         </div>
