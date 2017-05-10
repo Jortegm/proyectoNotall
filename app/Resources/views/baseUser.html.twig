@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+    <!--link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="img/x-icon"-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('profile/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('profile/css/custom.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('profile/css/font-awesome.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('profile/js/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('profile/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" type="text/css">
+    {% block stylesheets %}{% endblock %}
+
+</head>
+<body>
+{% block body %}{% endblock %}
+<script type="text/javascript" src="{{ asset('profile/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/custom.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/jquery-1.10.2.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/jquery.metisMenu.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/dataTables/jquery.dataTables.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/dataTables/dataTables.bootstrap.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/morris/morris.js') }}"></script>
+<script type="text/javascript" src="{{ asset('profile/js/morris/raphael-2.1.0.min.js') }}"></script>
+
+
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

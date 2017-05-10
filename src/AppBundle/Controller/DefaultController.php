@@ -50,7 +50,7 @@ class DefaultController extends Controller {
      * @Route("/cuaderno", name="Cuaderno")
      */
     public function cuadernoAction(Request $request) {
-            $this->render('pagin/cuaderno.html.twig');
+           return $this->render('pagin/cuaderno.html.twig');
     }
 
     /**
@@ -78,8 +78,8 @@ class DefaultController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->addFlash('estado', 'Bienvenida');
-            return $this->redirectToRoute('Cuaderno', ['Usuario' => $user->getId()]);
+            $this->addFlash('estado', 'Bienvenido');
+            return $this->redirectToRoute('Cuaderno', ['Usuario' => $user]);
         }
 
         return $this->render('registro/registro.html.twig', ['form' => $forma->createView()]);
