@@ -6,57 +6,68 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Perfil </h2>
-                <h5>Este es tu Espacio Personal </h5>
-            </div>
+                <div class="row">
+                        <!-- Form Elements -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <p>Este es tu Espacio Personal</p>
+                            </div>
+
+                               {%  for usuario in users %}
+
+                                <div class="panel-body" id="info">
+                                    <div id="editar" style="float:right">
+                                        <a href="#" class="fa fa-pencil" style="font-size: 35px"></a>
+                                    </div>
+
+                                    <div><label>NOMBRE </label><p >{{ usuario.nombreUsuario }}</p><br/></div>
+
+                                    <div> <label>APELLIDOS</label><p>{{ usuario.apellidoUsuario }}</p><br/> </div>
+
+                                    <div><label>CORREO Electronico</label><p>{{ usuario.correoUsuario }}</p><br/></div>
+
+                                    <div><label>NIVEL</label><p>{{ usuario.nivelUsuario }}</p><br/></div>
+
+                                    <div><label>PAÍS</label><p>{{ usuario.pais }}</p><br/></div>
+
+                                    <div><label>BIOGRAFIA</label></div>
+
+                                    <div><textarea class ="form-control"> {{ usuario.biografia }}"</textarea><br/></div>
+
+                                    <div><label>NICK USUARIO</label><p>{{ usuario.nickUsuario }}</p><br/></div>
+
+                                    <div><label>CONTRASEÑA DE USUARIO</label><p>{{  usuario.passwdUsuario }}</p><br/> </div>
+                                </div>
+                        </div>
+                </div>
+             </div>
         </div>
-        <table class="table table-condensed">
-            <thead>
-            <tr>
-                <th>NOMBRE </th>
-                <th>APELLIDOS</th>
-                <th>CORREO Electronico</th>
-                <th>TIPO</th>
-                <th>NIVEL</th>
-                <th>PAÍS</th>
-                <th>FECHA DE ALTA</th>
-                <th>FECHA DE ACTUALIZACIÓN</th>
-                <th>BIOGRAFIA</th>
-                <th>NICK USUARIO</th>
-                <th>CONTRASEÑA DE USUARIO</th>
-                <th>ACCIONES</th>
-            </tr>
-            </thead>
-            {%  for usuario in users %}
-            <tbody>
-            <tr>
-                <td>{{ usuario.id }}</td>
-                <td>{{ usuario.nombreUsuario }}</td>
-                <td>{{ usuario.apellidoUsuario }}</td>
-                <td>{{ usuario.correoUsuario }}</td>
-                <td>
-                    {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
-                        <strong style="color:red">ROLE_ADMIN</strong>
-                    {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
-                        <strong style="color:blue">ROLE_USER</strong>
-                    {% endif %}
-                <td>
-                    {%  if usuario.nivelUsuario == 'NOVATO' %}
-                        <strong style="color:#62B0A7">Novato</strong>
-                    {% elseif usuario.nivelUsuario == 'INTERMEDIO' %}
-                        <strong style="color:#84B062">Intermedio</strong>
-                    {% elseif usuario.nivelUsuario == 'EXPERTO' %}
-                        <strong style="color:#B09562">Experto</strong>
-                    {% endif %}
-                <td>{{ usuario.pais }}</td>
-                <td>{{ usuario.fechaAlta | date('d-m-Y ') }}</td>
-                <td>{{ usuario.fechaActualizacion | date('d-m-Y') }}</td>
-                <td>{{ usuario.biografia }}</td>
-                <td>{{ usuario.nickUsuario }}</td>
-                <td>{{ usuario.passwdUsuario }}</td>
-               {% endfor %}
-            </tr>
-            </tbody>
-        </table>
+
+        <hr>
+
+        {% endfor %}
+
+        {%  for usuario in users %}
+        <div class="panel-body" style="display: none;" id="modificar">
+            <label>NOMBRE </label>
+            <input class ="form-control" value="{{ usuario.nombreUsuario }}"/><br/>
+            <label>APELLIDOS</label>
+            <input class ="form-control" value="{{ usuario.apellidoUsuario }}"/><br/>
+            <label>CORREO Electronico</label>
+            <input class ="form-control" value="{{ usuario.correoUsuario }}"/><br/>
+            <label>NIVEL</label>
+            <input class ="form-control" value="{{ usuario.nivelUsuario }}"/><br/>
+            <label>PAÍS</label>
+            <input class ="form-control" value="{{ usuario.pais }}"/><br/>
+            <label>BIOGRAFIA</label>
+            <textarea class ="form-control"> {{ usuario.biografia }}"</textarea><br/>
+            <label>NICK USUARIO</label>
+            <input class ="form-control" value="{{ usuario.nickUsuario }}"/><br/>
+            <label>CONTRASEÑA DE USUARIO</label>
+            <input class ="form-control" value="{{ usuario.passwdUsuario }}"/><br/>
+            <hr>
+        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

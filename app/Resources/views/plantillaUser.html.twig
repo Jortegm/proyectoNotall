@@ -29,7 +29,6 @@
                         <li class="text-center" style="border:1px solid white;padding-bottom: 2%">
                             <img src="../{{ asset('profile/img/profile.png') }}" width="230px" hight="310px" class="user-image img-responsive"/>
                         </li>
-
                         <li>
                             <a  href="{{ path('Perfil') }}">
                                 <i class="fa fa-smile-o	fa-3x">
@@ -77,6 +76,7 @@
         </div>
     </section>
     </header>
+    {{ dump(app.user.id) }}
 
     <div id="page-wrapper" >
         <div id="page-inner">
@@ -89,7 +89,7 @@
             <!-- /. ROW  -->
             <hr />
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-6">
+                <div class="col-md-4 col-sm-6 col-xs-6" id="perfil">
                     <div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-red set-icon">
                     <i class="fa fa-user"></i>

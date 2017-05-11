@@ -92,8 +92,17 @@ class UserController extends Controller {
     }
 
 
-    public function deleteAction(Request $request) {
-
+    public function deleteAction(Usuario $usuario) {
+        $em = $this->getDoctrine()->getManager();
+        try {
+            $em->remove($usuario);
+            $em->flush();
+            $this->addFlash('estado', 'Usuario eliminado con éxito');
+        }
+        catch(Exception $e) {
+            $this->addFlash('error', 'No se han podido eliminar');
+        }
+        return $this->redirectToRoute('usuarios_registro');
 
     }
 

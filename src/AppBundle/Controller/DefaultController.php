@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Usuarios;
+use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,27 +60,23 @@ class DefaultController extends Controller
     /**
      * @Route("/perfil", name="Perfil")
      */
-    public function perfilAction(Request $request) {
+    public function perfilAction(Request $request , Usuarios $usuario = null) {
+        if (null === $usuario) {
+            $usuario = $this->getUser();
+        }
         /** @var EntityManager $em */
-        $em = $this->getDoctrine()->getManager();
-
-       /* $usuario = $em->getRepository('AppBundle:Usuarios')->find($idUsuario);
-       //$form->handleRequest($request);
         $em = $this-> getDoctrine()->getManager();
-
+        $idUsuario = $usuario->getId();
+        dump($idUsuario);
         $users = $em->createQueryBuilder()
             ->select ('u')
             ->from ('AppBundle:Usuarios', 'u')
+            ->where('u.id = :user')
+            ->setParameter('user', $idUsuario)
             ->getQuery ()
-            ->getResult();*/
+            ->getResult();
 
-        $users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
-        $idUsuario = $request->get('id');
-
-        dump($idUsuario );
-
-
-        return $this->render('pagin/perfil.html.twig', array('users' => $users));
+        return $this->render('pagin/perfil.html.twig', array('users' => $users, /*'form' => $form->createView()*/));
     }
 
     /**
@@ -139,8 +136,7 @@ class DefaultController extends Controller
         $helper = $this->get('security.authentication_utils');
 
         // replace this example code with whatever you need
-        return $this->render('login/login.html.twig', [
-            'error' => $helper->getLastAuthenticationError()
+        return $this->render('login/login.html.twig', ['error' => $helper->getLastAuthenticationError()
         ]);
 
     }
