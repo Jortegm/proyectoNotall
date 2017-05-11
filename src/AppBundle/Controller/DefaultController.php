@@ -10,7 +10,8 @@ use AppBundle\Form\UsuariosType;
 use AppBundle\Entity\Post;
 
 
-class DefaultController extends Controller {
+class DefaultController extends Controller
+{
     /**
      * @Route("/", name="homepage")
      */
@@ -23,7 +24,8 @@ class DefaultController extends Controller {
     /**
      * @Route("/principal", name="principal")
      */
-    public function principalAction(Request $request){
+    public function principalAction(Request $request)
+    {
         // replace this example code with whatever you need
         return $this->render('plantilla.html.twig');
     }
@@ -49,9 +51,53 @@ class DefaultController extends Controller {
     /**
      * @Route("/cuaderno", name="Cuaderno")
      */
-    public function cuadernoAction(Request $request) {
-           return $this->render('pagin/cuaderno.html.twig');
+    public function cuadernoAction(Request $request)
+    {
+        return $this->render('pagin/cuaderno.html.twig');
     }
+
+    /**
+     * @Route("/perfil", name="Perfil")
+     */
+    public function perfilAction(Request $request) {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+
+       /* $usuario = $em->getRepository('AppBundle:Usuarios')->find($idUsuario);
+       //$form->handleRequest($request);
+        $em = $this-> getDoctrine()->getManager();
+
+        $users = $em->createQueryBuilder()
+            ->select ('u')
+            ->from ('AppBundle:Usuarios', 'u')
+            ->getQuery ()
+            ->getResult();*/
+
+        $users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
+        $idUsuario = $request->get('id');
+
+        dump($idUsuario );
+
+
+        return $this->render('pagin/perfil.html.twig', array('users' => $users));
+    }
+
+    /**
+     * @Route("/partitura", name="Partitura")
+     */
+    public function partituraAction(Request $request)
+    {
+        return $this->render('pagin/partitura.html.twig');
+    }
+
+    /**
+     * @Route("/lstpar", name="lstpar")
+     */
+    public function lstpaAction(Request $request)
+    {
+        return $this->render('pagin/lstpa.html.twig');
+    }
+
 
     /**
      * @Route("/para", name="Para")
@@ -91,9 +137,12 @@ class DefaultController extends Controller {
     public function loginAction()
     {
         $helper = $this->get('security.authentication_utils');
+
+        // replace this example code with whatever you need
         return $this->render('login/login.html.twig', [
             'error' => $helper->getLastAuthenticationError()
         ]);
+
     }
 
     /**
@@ -103,15 +152,6 @@ class DefaultController extends Controller {
     public function comprobarAction()
     {
 
-
     }
-
-
-
-
-
-
-
-
-
 }
+

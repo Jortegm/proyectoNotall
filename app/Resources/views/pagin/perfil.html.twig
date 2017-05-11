@@ -1,0 +1,63 @@
+{% extends '::plantillaUser.html.twig' %}
+
+{% block content %}
+
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Perfil </h2>
+                <h5>Este es tu Espacio Personal </h5>
+            </div>
+        </div>
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>NOMBRE </th>
+                <th>APELLIDOS</th>
+                <th>CORREO Electronico</th>
+                <th>TIPO</th>
+                <th>NIVEL</th>
+                <th>PAÍS</th>
+                <th>FECHA DE ALTA</th>
+                <th>FECHA DE ACTUALIZACIÓN</th>
+                <th>BIOGRAFIA</th>
+                <th>NICK USUARIO</th>
+                <th>CONTRASEÑA DE USUARIO</th>
+                <th>ACCIONES</th>
+            </tr>
+            </thead>
+            {%  for usuario in users %}
+            <tbody>
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nombreUsuario }}</td>
+                <td>{{ usuario.apellidoUsuario }}</td>
+                <td>{{ usuario.correoUsuario }}</td>
+                <td>
+                    {%  if usuario.tipoDeUsuario == 'ROLE_ADMIN' %}
+                        <strong style="color:red">ROLE_ADMIN</strong>
+                    {% elseif usuario.tipoDeUsuario == 'ROLE_USER' %}
+                        <strong style="color:blue">ROLE_USER</strong>
+                    {% endif %}
+                <td>
+                    {%  if usuario.nivelUsuario == 'NOVATO' %}
+                        <strong style="color:#62B0A7">Novato</strong>
+                    {% elseif usuario.nivelUsuario == 'INTERMEDIO' %}
+                        <strong style="color:#84B062">Intermedio</strong>
+                    {% elseif usuario.nivelUsuario == 'EXPERTO' %}
+                        <strong style="color:#B09562">Experto</strong>
+                    {% endif %}
+                <td>{{ usuario.pais }}</td>
+                <td>{{ usuario.fechaAlta | date('d-m-Y ') }}</td>
+                <td>{{ usuario.fechaActualizacion | date('d-m-Y') }}</td>
+                <td>{{ usuario.biografia }}</td>
+                <td>{{ usuario.nickUsuario }}</td>
+                <td>{{ usuario.passwdUsuario }}</td>
+               {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+

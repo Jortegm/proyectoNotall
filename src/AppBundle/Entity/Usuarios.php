@@ -3,13 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="Usuarios")
  */
-class Usuarios {
+class Usuarios implements UserInterface {
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -49,7 +50,7 @@ class Usuarios {
     private $Pais;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", unique=true, nullable=false)
      * @var string
      */
     private $nickUsuario;
@@ -390,7 +391,9 @@ class Usuarios {
         return $this->UsuarioPartitura;
     }
 
-
+    public function __toString() {
+        return $this->getNombreUsuario() ;
+    }
 
     /**
     * Returns the roles granted to the user.
@@ -412,10 +415,10 @@ class Usuarios {
     {
         $roles = ['ROLE_USER'];
 
-        if ($this->getNivelUsuario()=='Administrador') {
+        if ($this->getTipoDeUsuario()=='ROLE_ADMIN') {
             $roles[] = 'ROLE_ADMIN';
         }
-        if ($this->getNivelUsuario()=='Usuario') {
+        if ($this->getTipoDeUsuario()=='ROLE_USER') {
             $roles[] = 'ROLE_USER';
         }
         return $roles;

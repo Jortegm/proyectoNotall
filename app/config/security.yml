@@ -3,18 +3,17 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
-
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         entidad:
             entity:
               class: AppBundle\Entity\Usuarios
               property: nickUsuario
 
+    encoders:
+        AppBundle\Entity\Usuarios: bcrypt
 
     role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER]
-
+            ROLE_ADMIN: [ROLE_USER]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -26,13 +25,14 @@ security:
             anonymous: ~
             # activate different ways to authenticate
 
-            # http_basic: ~
+           # http_basic: ~
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
             form_login:
               login_path: login
               check_path: comprobar
-#              default_target_path: principalAdmin
+              default_target_path: Cuaderno
+              default_target_path :  default_security_target
 
             logout:
               path: salir

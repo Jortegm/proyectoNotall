@@ -5,6 +5,7 @@ namespace Zaide\UsuariosBundle\Controller;
 use AppBundle\Entity\Usuarios;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Entity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\UsuariosType;
@@ -14,7 +15,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller {
 
-
+    /**
+     * @Security("is_granted('ROLE_ADMIN')"):
+     * @return Response
+     */
     public function principalAdminAction() {
         // replace this example code with whatever you need
         return $this->render('@Usuarios/User/PrincipalAdmin.html.twig');
@@ -22,19 +26,19 @@ class UserController extends Controller {
 
 
     public function indexAction(Request $request) {
-        /** @var EntityManager $em */
-        $em = $this-> getDoctrine()->getManager();
-        $users = $em->createQueryBuilder()
-            ->select ('u')
-            ->from ('AppBundle:Usuarios', 'u')
-            ->getQuery ()
-            ->getResult();
+            /** @var EntityManager $em */
+            $em = $this-> getDoctrine()->getManager();
+            $users = $em->createQueryBuilder()
+                ->select ('u')
+                ->from ('AppBundle:Usuarios', 'u')
+                ->getQuery ()
+                ->getResult();
 
-        $paginacion = $this->get('knp_paginator');
-        $pagination = $paginacion->paginate($users, $request->query->getInt('page', 1), 10);
-        //$users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
+            $paginacion = $this->get('knp_paginator');
+            $pagination = $paginacion->paginate($users, $request->query->getInt('page', 1), 10);
+            //$users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
 
-        return $this->render('UsuariosBundle:User:index.html.twig', array('pagination' => $pagination));
+            return $this->render('UsuariosBundle:User:index.html.twig', array('pagination' => $pagination));
 
     }
 
@@ -70,6 +74,14 @@ class UserController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $claveFormulario = $form->get('passwdUsuario')->getData();
+
+            if ($claveFormulario) {
+                $clave = $this->get('security.password_encoder')
+                    ->encodePassword($usuario, $claveFormulario);
+
+                $usuario->setPasswdUsuario($clave);
+            }
             $em->flush();
             $this->addFlash('estado', 'Cambios guardados con éxito');
             return $this->redirectToRoute('usuarios_registro', ['usuarios'=>$usuario->getId()]);
@@ -82,16 +94,6 @@ class UserController extends Controller {
 
     public function deleteAction(Request $request) {
 
-        $em = $this->getDoctrine()->getManager();
-        $idUsuario = $request->get('id');
-        $usuario = $em->getRepository('AppBundle:Usuarios')->find($idUsuario);
-        $em->remove($usuario);
-     //   $em->persist($usuario);
-        $em->flush();
-            $this->addFlash('estado', 'Usuario eliminado con éxito');
-
-
-            return $this->redirectToRoute('usuarios_registro');
 
     }
 
