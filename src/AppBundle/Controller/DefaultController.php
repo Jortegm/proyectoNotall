@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Partitura;
 use AppBundle\Entity\Usuarios;
+use AppBundle\Form\PartituraType;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,6 +15,8 @@ use AppBundle\Entity\Post;
 
 class DefaultController extends Controller
 {
+
+    //------------------------------------------------------------------------------------------------------------------
     /**
      * @Route("/", name="homepage")
      */
@@ -50,6 +54,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/para", name="Para")
+     */
+    public function parusarAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('para/para.htmil.twig');
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+
+    /**
      * @Route("/cuaderno", name="Cuaderno")
      */
     public function cuadernoAction(Request $request)
@@ -64,10 +80,11 @@ class DefaultController extends Controller
         if (null === $usuario) {
             $usuario = $this->getUser();
         }
+        $form = $this->createForm(UsuariosType::class, $usuario);
+
         /** @var EntityManager $em */
         $em = $this-> getDoctrine()->getManager();
         $idUsuario = $usuario->getId();
-        dump($idUsuario);
         $users = $em->createQueryBuilder()
             ->select ('u')
             ->from ('AppBundle:Usuarios', 'u')
@@ -76,7 +93,23 @@ class DefaultController extends Controller
             ->getQuery ()
             ->getResult();
 
-        return $this->render('pagin/perfil.html.twig', array('users' => $users, /*'form' => $form->createView()*/));
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $claveFormulario = $form->get('passwdUsuario')->getData();
+
+            if ($claveFormulario) {
+                $clave = $this->get('security.password_encoder')
+                    ->encodePassword($usuario, $claveFormulario);
+
+                $usuario->setPasswdUsuario($clave);
+            }
+            $em->flush();
+            $this->addFlash('estado', 'Cambios guardados con éxito');
+            return $this->redirectToRoute('Perfil', ['usuarios'=>$usuario->getId()]);
+        }
+
+        return $this->render('pagin/perfil.html.twig', array('users' => $users, 'form' => $form->createView()));
     }
 
     /**
@@ -90,21 +123,19 @@ class DefaultController extends Controller
     /**
      * @Route("/lstpar", name="lstpar")
      */
-    public function lstpaAction(Request $request)
-    {
+    public function lstpaAction(Request $request ) {
+
+
         return $this->render('pagin/lstpa.html.twig');
+            //'form' => $form->createView()));
     }
 
+    //------------------------------------------------------------------------------------------------------------------
 
-    /**
-     * @Route("/para", name="Para")
-     */
-    public function parusarAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('para/para.htmil.twig');
-    }
 
+
+
+    //------------------------------------------------------------------------------------------------------------------
     /**
      * @Route("/registro", name="Registro")
      */
@@ -119,10 +150,20 @@ class DefaultController extends Controller
             $user->setFechaActualizacion(new \DateTime("now"));
             $user->setTipoDeUsuario('ROLE_USER');
             $em = $this->getDoctrine()->getManager();
+
+            $claveFormulario = $forma->get('passwdUsuario')->getData();
+
+            if ($claveFormulario) {
+                $clave = $this->get('security.password_encoder')
+                    ->encodePassword($user, $claveFormulario);
+
+                $user->setPasswdUsuario($clave);
+            }
+
             $em->persist($user);
             $em->flush();
             $this->addFlash('estado', 'Bienvenido');
-            return $this->redirectToRoute('Cuaderno', ['Usuario' => $user]);
+            return $this->redirectToRoute('login', ['Usuario' => $user]);
         }
 
         return $this->render('registro/registro.html.twig', ['form' => $forma->createView()]);

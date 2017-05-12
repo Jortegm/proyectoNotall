@@ -1,0 +1,134 @@
+{% extends '::plantillaAdminis.html.twig' %}
+
+
+{% block body %}
+    {{ parent() }}
+    <body>
+    <div class="container">
+        {% if app.session.flashBag.has('estado') %}
+            {% set mensajes = app.session.flashBag.get('estado') %}
+            {% for mensaje in mensajes %}
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    {{ mensaje }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if app.session.flashBag.has('error') %}
+            {% set mensajes = app.session.flashBag.get('error') %}
+            {% for mensaje in mensajes %}
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    {{ mensaje }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-music"></i> Listado de Partituras</h3>
+                <div id = "volver" style ="float:right;margin-top:-5%;">
+                    <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <a href="{{ path('partituras_add') }}" class="btn btn-lg btn-success"><span class="fa fa-plus-circle"></span> Nueva Partitura</a>
+        </div>
+        <br/><br/>
+
+        <section class="panel">
+            <header class="panel-heading">
+                Número de Usuarios: {{ pagination.getTotalItemCount }}
+            </header>
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th> {{ knp_pagination_sortable(pagination,'ID_USUARIO', 'u.id' ) }}</th>
+                    <th>PROPIEDAD DE PARTITURA</th>
+                    <th>NOMBRE DE LA PARTITURA</th>
+                    <th>CONTENIDO DE LA PARTITURA</th>
+                </tr>
+                </thead>
+                {%  for partitura in pagination %}
+                    <tbody>
+                    <tr>
+                        <td>{{ partitura.id }}</td>
+                        <td>{{ partitura.PartituraUsuario }}</td>
+                        <td>{{ partitura.nombrePartitura }}</td>
+                        <td>{{ partitura.ContenidoPartitura }}</td>
+                        <td>
+                            <a href="{{ path('partituras_edit', {id: partitura.id }) }}"><button class="btn btn-link" style="color:#5eb5e0">Editar partitura</button></a><br/>
+                            <a href="{{ path('partituras_delete', {id: partitura.id}) }}  "><button class="btn btn-link" style="color:red">Eliminar partitura</button></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                {%  endfor %}
+            </table>
+            </table>
+        </section>
+    </section>
+    <!-- pagination start -->
+    <div class="navigation">
+        {{  knp_pagination_render (pagination) }}
+    </div>
+    <!-- Finish pagination -->
+    <!-- javascripts -->
+
+    <script>
+
+        //knob
+        $(function() {
+            $(".knob").knob({
+                'draw' : function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function() {
+            $("#owl-slider").owlCarousel({
+                navigation : true,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem : true
+
+            });
+        });
+
+        //custom select box
+
+        $(function(){
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function(){
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function(e, el, code){
+                    el.html(el.html()+' (GDP - '+gdpData[code]+')');
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+{% endblock %}

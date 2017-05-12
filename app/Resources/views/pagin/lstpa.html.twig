@@ -6,7 +6,40 @@
             <div class="col-md-12">
                 <h2>Lista de tus Partitas </h2>
                 <h5>Aquí tienes el Listado de tus Partituras</h5>
+                <div id = "volver" style ="float:right;margin-top:-5%;">
+                    <a href="{{ path('Cuaderno') }}" class="btn btn-lg btn-danger"> Volver</a>
+                </div>
             </div>
+
+            {#{%  for partitura in partituras %}#}
+
+
+                {#<div class="panel-body" style="display: none;" id="modificar">#}
+                    {#{{ form_start(form) }}#}
+                    {#<div class="form-group">#}
+                        {#{{ form_label(form.PartituraUsuario) }}#}
+                        {#{{ form_widget(form.PartituraUsuario, {'attr' : {' class' : 'form-control'} }) }}#}
+                        {#<span class="text-danger">{{ form_errors(form.PartituraUsuario) }} </span>#}
+                    {#</div>#}
+
+                    {#<div class="form-group">#}
+                        {#{{ form_label(form.NombrePartitura) }}#}
+                        {#{{ form_widget(form.NombrePartitura, {'attr' : {' class' : 'form-control'} }) }}#}
+                        {#<span class="text-danger">{{ form_errors(form.NombrePartitura) }} </span>#}
+                    {#</div>#}
+
+                    {#<div class="form-group">#}
+                        {#{{ form_label(form.ContenidoPartitura) }}#}
+                        {#{{ form_widget(form.ContenidoPartitura, {'attr' : {' class' : 'form-control'} }) }}#}
+                        {#<span class="text-danger">{{ form_errors(form.ContenidoPartitura) }} </span>#}
+                    {#</div>#}
+
+                    {#{{ form_end(form) }}#}
+                    {#<hr>#}
+                {#</div>#}
+
+            {#{% endfor %}#}
+        </div>
         </div>
     </div>
 {% endblock %}

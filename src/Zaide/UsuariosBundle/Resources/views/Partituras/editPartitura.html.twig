@@ -1,0 +1,39 @@
+{% extends '::plantillaAdminis.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <section id="main-content">
+    <section class="wrapper">
+    <!--overview start-->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-pencil-square-o"></i> Modificar propiedades de las Partituras</h3>
+            {{ form_start(form) }}
+            <br/><br>
+            <div id = "volver" style ="float:right;margin-top:-5%;">
+                <a href="{{ path('usuarios_homepage') }}" class="btn btn-lg btn-danger"> Volver</a>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.PartituraUsuario) }}
+                {{ form_widget(form.PartituraUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.PartituraUsuario) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.NombrePartitura) }}
+                {{ form_widget(form.NombrePartitura, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.NombrePartitura) }} </span>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.ContenidoPartitura) }}
+                {{ form_widget(form.ContenidoPartitura, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.ContenidoPartitura) }} </span>
+            </div>
+{{ form_end(form) }}
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -6,6 +6,9 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Perfil </h2>
+                <div id = "volver" style ="float:right;margin-top:-5%;">
+                    <a href="{{ path('Cuaderno') }}" class="btn btn-lg btn-danger"> Volver</a>
+                </div>
                 <div class="row">
                         <!-- Form Elements -->
                         <div class="panel panel-default">
@@ -30,9 +33,7 @@
 
                                     <div><label>PAÍS</label><p>{{ usuario.pais }}</p><br/></div>
 
-                                    <div><label>BIOGRAFIA</label></div>
-
-                                    <div><textarea class ="form-control"> {{ usuario.biografia }}"</textarea><br/></div>
+                                    <div><label>BIOGRAFIA</label><p> {{ usuario.biografia }}"</p><br/></div>
 
                                     <div><label>NICK USUARIO</label><p>{{ usuario.nickUsuario }}</p><br/></div>
 
@@ -48,25 +49,67 @@
         {% endfor %}
 
         {%  for usuario in users %}
-        <div class="panel-body" style="display: none;" id="modificar">
-            <label>NOMBRE </label>
-            <input class ="form-control" value="{{ usuario.nombreUsuario }}"/><br/>
-            <label>APELLIDOS</label>
-            <input class ="form-control" value="{{ usuario.apellidoUsuario }}"/><br/>
-            <label>CORREO Electronico</label>
-            <input class ="form-control" value="{{ usuario.correoUsuario }}"/><br/>
-            <label>NIVEL</label>
-            <input class ="form-control" value="{{ usuario.nivelUsuario }}"/><br/>
-            <label>PAÍS</label>
-            <input class ="form-control" value="{{ usuario.pais }}"/><br/>
-            <label>BIOGRAFIA</label>
-            <textarea class ="form-control"> {{ usuario.biografia }}"</textarea><br/>
-            <label>NICK USUARIO</label>
-            <input class ="form-control" value="{{ usuario.nickUsuario }}"/><br/>
-            <label>CONTRASEÑA DE USUARIO</label>
-            <input class ="form-control" value="{{ usuario.passwdUsuario }}"/><br/>
+
+
+            <div class="panel-body" style="display: none;" id="modificar">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.nombreUsuario) }}
+                    {{ form_widget(form.nombreUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.nombreUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.apellidoUsuario) }}
+                    {{ form_widget(form.apellidoUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.tipoDeUsuario) }}
+                    {{ form_widget(form.tipoDeUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.tipoDeUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.nivelUsuario) }}
+                    {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.Pais) }}
+                    {{ form_widget(form.Pais, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.Pais) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.nickUsuario) }}
+                    {{ form_widget(form.nickUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.nickUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.passwdUsuario) }}
+                    {{ form_widget(form.passwdUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.passwdUsuario) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.biografia) }}
+                    {{ form_widget(form.biografia, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.biografia) }} </span>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.correoUsuario) }}
+                    {{ form_widget(form.correoUsuario, {'attr' : {' class' : 'form-control'} }) }}
+                    <span class="text-danger">{{ form_errors(form.correoUsuario) }} </span>
+                </div>
+                {{ form_end(form) }}
             <hr>
         </div>
+
         {% endfor %}
     </div>
 

@@ -19,14 +19,14 @@ class Partitura {
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      * @var string
 
      */
     private $NombrePartitura;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $ContenidoPartitura;

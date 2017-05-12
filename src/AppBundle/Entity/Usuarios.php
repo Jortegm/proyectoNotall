@@ -20,31 +20,31 @@ class Usuarios implements UserInterface {
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $nombreUsuario;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $apellidoUsuario;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $Tipo_de_Usuario;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $nivelUsuario;
 
     /**
-     * @ORM\Column(type="string", length=80)
+     * @ORM\Column(type="string")
      * @var string
      */
     private $Pais;
@@ -62,20 +62,20 @@ class Usuarios implements UserInterface {
     private $passwdUsuario;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string" )
      * @var string
      */
     private $biografia;
 
 
     /**
-     * @ORM\Column(type="date", length=100)
+     * @ORM\Column(type="date" )
      * @var \DateTime
      */
     private $fechaAlta;
 
     /**
-     * @ORM\Column(type="date", length=100)
+     * @ORM\Column(type="date" )
      * @var \DateTime
      */
     private $fechaActualizacion;
