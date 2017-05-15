@@ -63,13 +63,12 @@ class DefaultController extends Controller
     }
 
     //------------------------------------------------------------------------------------------------------------------
-
+    //funciones para el perfil usuario: MOSTRAR DATOS,MOSTRAR PARTITURA, MOSTRAR LISTADO PARTITURAS
 
     /**
      * @Route("/cuaderno", name="Cuaderno")
      */
-    public function cuadernoAction(Request $request)
-    {
+    public function cuadernoAction(Request $request) {
         return $this->render('pagin/cuaderno.html.twig');
     }
 
@@ -115,19 +114,30 @@ class DefaultController extends Controller
     /**
      * @Route("/partitura", name="Partitura")
      */
-    public function partituraAction(Request $request)
-    {
+    public function partituraAction(Request $request) {
         return $this->render('pagin/partitura.html.twig');
     }
 
     /**
      * @Route("/lstpar", name="lstpar")
      */
-    public function lstpaAction(Request $request ) {
+    public function lstpaAction(Request $request )
+    {
+        /** @var EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $partitura = $em->createQueryBuilder()
+            ->select('u')
+            ->from('AppBundle:Partitura', 'u')
+            ->where('u.PartituraUsuario=:user')
+            ->setParameter('user', $this->getUser())
+            ->getQuery()
+            ->getResult();
 
+            $paginacion = $this->get('knp_paginator');
+            $pagination = $paginacion->paginate($partitura, $request->query->getInt('page', 1), 3);
 
-        return $this->render('pagin/lstpa.html.twig');
-            //'form' => $form->createView()));
+            return $this->render('pagin/lstpa.html.twig', array('pagination' => $pagination));
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -136,6 +146,8 @@ class DefaultController extends Controller
 
 
     //------------------------------------------------------------------------------------------------------------------
+    //Funciones para el LOGIN
+
     /**
      * @Route("/registro", name="Registro")
      */

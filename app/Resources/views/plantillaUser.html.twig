@@ -48,7 +48,7 @@
                                 </i> Mis Partituras Públicas
                             </a>
                         </li>
-                        <li  >
+                        <li>
                             <a   href="chart.html">
                                 <i class="fa fa-archive	 fa-3x">
                                 </i> Cuenta
@@ -59,14 +59,15 @@
                                 <i class="fa fa-refresh fa-3x">
                                 </i> Actualizar</a>
                         </li>
-                        <li  >
+                        <li>
                             <a  href="{{ path('salir') }}">
                                 <i class="fa fa-chevron-circle-left fa-3x">
                                 </i> Salir</a>
                         </li>
-                        <a href="{{ path('usuarios_homepage') }}"></a>
-                        <li class="admin" style="display:none" >
-                                </i> Administrar</a>
+                        <li>
+                            <a  href="{{ path('usuarios_homepage') }}">
+                                <i class="fa fa-exchange fa-3x">
+                                </i> Administrador</a>
                         </li>
                         </a>
                     </ul>
@@ -87,14 +88,14 @@
             </div>
             <!-- /. ROW  -->
             <hr />
-            <div class="row">
+            <div class="row" id="option">
                 <div class="col-md-4 col-sm-6 col-xs-6" id="perfil">
                     <div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-red set-icon">
                     <i class="fa fa-user"></i>
                 </span>
                         <div class="text-box" >
-                            <a href="{{ path('Perfil') }}"> <p class="main-text">Perfil</p> </a>
+                            <a href="{{ path('Perfil') }}" id="perfil"> <p class="main-text">Perfil</p> </a>
                             <br/><br/>
                             <h5>Entra y Modifica tu perfil</h5>
                         </div>
@@ -106,7 +107,7 @@
                     <i class="	fa fa-plus-circle"></i>
                 </span>
                         <div class="text-box" >
-                            <a href="{{ path('Partitura') }}"> <p class="main-text">Nueva Partitura</p></a>
+                            <a href="{{ path('Partitura') }}" id="partitura"> <p class="main-text">Nueva Partitura</p></a>
                             <br/><br/>
                             <h5>Comienza a componer </h5>
                         </div>
@@ -118,7 +119,7 @@
                     <i class="fa fa-th-large"></i>
                 </span>
                         <div class="text-box" >
-                            <a href="{{ path('lstpar') }}"> <p class="main-text">Listado de Tus Partituras</p></a>
+                            <a href="{{ path('lstpar') }}" id="lstpar"> <p class="main-text">Listado</p></a>
                             <br/><br/>
                             <h5>Aquí están todas tus partituras</h5>
                         </div>
@@ -143,8 +144,13 @@
 {% endblock %}
 
 {% block javascripts %} <!-- los javascriptses-->
-    <script>
-
-    </script>
-
+    <script type="text/javascript" src="{{ asset('profile/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/jquery-1.10.2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/jquery.metisMenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/dataTables/jquery.dataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/dataTables/dataTables.bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/morris/morris.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/morris/raphael-2.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/js.js') }}"></script>
 {% endblock %}

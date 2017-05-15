@@ -1,5 +1,7 @@
 {% extends '::plantillaUser.html.twig' %}
 
+{% block title %} Perfil {{ app.user }} {% endblock %}
+
 {% block content %}
 
     <div id="page-inner">
@@ -15,9 +17,7 @@
                             <div class="panel-heading">
                                 <p>Este es tu Espacio Personal</p>
                             </div>
-
                                {%  for usuario in users %}
-
                                 <div class="panel-body" id="info">
                                     <div id="editar" style="float:right">
                                         <a href="#" class="fa fa-pencil" style="font-size: 35px"></a>
@@ -27,7 +27,7 @@
 
                                     <div> <label>APELLIDOS</label><p>{{ usuario.apellidoUsuario }}</p><br/> </div>
 
-                                    <div><label>CORREO Electronico</label><p>{{ usuario.correoUsuario }}</p><br/></div>
+                                    <div><label>CORREO Electrónico</label><p>{{ usuario.correoUsuario }}</p><br/></div>
 
                                     <div><label>NIVEL</label><p>{{ usuario.nivelUsuario }}</p><br/></div>
 
@@ -65,17 +65,17 @@
                     <span class="text-danger">{{ form_errors(form.apellidoUsuario) }} </span>
                 </div>
 
-                <div class="form-group">
-                    {{ form_label(form.tipoDeUsuario) }}
-                    {{ form_widget(form.tipoDeUsuario, {'attr' : {' class' : 'form-control'} }) }}
-                    <span class="text-danger">{{ form_errors(form.tipoDeUsuario) }} </span>
-                </div>
+                {#<div class="form-group">#}
+                    {#{{ form_label(form.tipoDeUsuario) }}#}
+                    {#{{ form_widget(form.tipoDeUsuario, {'attr' : {' class' : 'form-control'} }) }}#}
+                    {#<span class="text-danger">{{ form_errors(form.tipoDeUsuario) }} </span>#}
+                {#</div>#}
 
-                <div class="form-group">
-                    {{ form_label(form.nivelUsuario) }}
-                    {{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control'} }) }}
-                    <span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>
-                </div>
+                {#<div class="form-group">#}
+                    {#{{ form_label(form.nivelUsuario) }}#}
+                    {#{{ form_widget(form.nivelUsuario, {'attr' : {' class' : 'form-control'} }) }}#}
+                    {#<span class="text-danger">{{ form_errors(form.nivelUsuario) }} </span>#}
+                {#</div>#}
 
                 <div class="form-group">
                     {{ form_label(form.Pais) }}

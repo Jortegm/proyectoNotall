@@ -177,6 +177,7 @@ class UserController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $idPartitura = $request->get('id');
+        dump($idPartitura);
         $partitura = $em->getRepository('AppBundle:Partitura')->find($idPartitura);
         $form = $this->createForm(PartituraType::class, $partitura);
         $form->handleRequest($request);

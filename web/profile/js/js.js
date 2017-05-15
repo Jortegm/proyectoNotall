@@ -4,12 +4,22 @@ $( window ).load(function() {
         e.preventDefault();
         $("#info").hide();
         $("#modificar").show();
+        $("div").eq(43).hide();
+        $("div").eq(44).hide();
+
+  /*  $("a").click(function () {
+
+        //  $("#perfil").hide();
+        $("div#option.w").hide()
     });
 
-    $(".perfil").click(function (e) {
-        e.preventDefault();
-        $("#perfil").hide();
-    })
+
+    $("a.btn.btn-lg.btn-danger").click(function() {
+       $("#option").show();*/
+    });
+
+
+
 
 
 });
