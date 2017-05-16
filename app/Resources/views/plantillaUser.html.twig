@@ -54,11 +54,7 @@
                                 </i> Cuenta
                             </a>
                         </li>
-                        <li  >
-                            <a  href="#">
-                                <i class="fa fa-refresh fa-3x">
-                                </i> Actualizar</a>
-                        </li>
+
                         <li>
                             <a  href="{{ path('salir') }}">
                                 <i class="fa fa-chevron-circle-left fa-3x">
@@ -82,7 +78,7 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Bienvendo {{ app.user }} </h2>
+                    <h2>Bienvendo {{ app.user.getNombreUsuario() }} </h2>
                     <h5>Este es tu Cuaderno, comienza a componer ... </h5>
                 </div>
             </div>

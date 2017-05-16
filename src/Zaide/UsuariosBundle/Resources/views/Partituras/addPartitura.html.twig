@@ -26,6 +26,12 @@
             </div>
 
             <div class="form-group">
+                {{ form_label(form.subNombrePartitura) }}
+                {{ form_widget(form.subNombrePartitura, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.subNombrePartitura) }} </span>
+            </div>
+
+            <div class="form-group">
                 {{ form_label(form.ContenidoPartitura) }}
                 {{ form_widget(form.ContenidoPartitura, {'attr' : {' class' : 'form-control', 'placeholder' : 'Añade el contenido a la partitura'} }) }}
                 <span class="text-danger">{{ form_errors(form.ContenidoPartitura) }} </span>

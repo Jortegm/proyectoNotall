@@ -392,8 +392,9 @@ class Usuarios implements UserInterface {
     }
 
     public function __toString() {
-        return $this->getNombreUsuario() ;
+        return $this->getNombreUsuario().' '.$this->getApellidoUsuario() ;
     }
+
 
     /**
     * Returns the roles granted to the user.

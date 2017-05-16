@@ -52,6 +52,7 @@
                     <th> {{ knp_pagination_sortable(pagination,'ID_USUARIO', 'u.id' ) }}</th>
                     <th>PROPIEDAD DE PARTITURA</th>
                     <th>NOMBRE DE LA PARTITURA</th>
+                    <th>SUBTITULO DE LA PARTITURA</th>
                     <th>CONTENIDO DE LA PARTITURA</th>
                 </tr>
                 </thead>
@@ -61,6 +62,7 @@
                         <td>{{ partitura.id }}</td>
                         <td>{{ partitura.PartituraUsuario }}</td>
                         <td>{{ partitura.nombrePartitura }}</td>
+                        <td> {{ partitura.subnombrePartitura }}</td>
                         <td>{{ partitura.ContenidoPartitura }}</td>
                         <td>
                             <a href="{{ path('partituras_edit', {id: partitura.id }) }}"><button class="btn btn-link" style="color:#5eb5e0">Editar partitura</button></a><br/>

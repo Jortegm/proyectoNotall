@@ -26,6 +26,29 @@ class Partitura {
     private $NombrePartitura;
 
     /**
+     * @return string
+     */
+    public function getSubNombrePartitura()
+    {
+        return $this->subNombrePartitura;
+    }
+
+    /**
+     * @param string $subNombrePartitura
+     */
+    public function setSubNombrePartitura($subNombrePartitura)
+    {
+        $this->subNombrePartitura = $subNombrePartitura;
+    }
+
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+
+     */
+    private $subNombrePartitura;
+
+    /**
      * @ORM\Column(type="string")
      * @var string
      */
