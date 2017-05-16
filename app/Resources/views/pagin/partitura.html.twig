@@ -11,6 +11,131 @@
                 </div>
             </div>
         </div>
+
+        <div class="row" id="menuPartitura">
+            <div class="col-md-12" style="text-align: center">
+                <h3>Menú </h3>
+
+            </div>
+        </div>
+
+        <div class="row" id="pantillaPartitur">
+            <div class="col-md-12" style="text-align: center; border-top: 2px solid black;" >
+                <div style="border: 2px solid black; background-color: #fcf8e3">
+                    <div style="border:1px solid white; margin:5%;background-color: #ffffff; -webkit-box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46);-moz-box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46);
+                    box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46); margin-top: 5%; ">
+                        <h3><input type="text" placeholder="Título" style="text-align: center"/></h3>
+                        <div id="boo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('profile/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/jquery-1.10.2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/jquery.metisMenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/dataTables/jquery.dataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/dataTables/dataTables.bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/morris/morris.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/morris/raphael-2.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/js.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/vex.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-tests.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-legacy-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-debug.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-legacy-debug.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-debug.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/vex.js') }}"></script>
+    {#<script src="path-to-scripts/vexflow.min.js"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-min.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-tests.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-legacy-min.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-debug.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-legacy-debug.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-debug.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/fonts/gonville.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/fonts/gonville_all.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/fonts/gonville_original.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/fonts/vexflow_font.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/accidental.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/annotation.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/articulation.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/barnote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/beam.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/bend.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/boundingbox.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/boundingboxcomputation.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/canvascontext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/clef.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/clefnote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/crescendo.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/curve.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/dot.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/easyscore.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/element.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/factory.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/formatter.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/fraction.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/frethandfinger.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/ghostnote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/glyph.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/gracenote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/gracenotegroup.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/header.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/index.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/keymanager.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/keysignature.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/modifier.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/modifiercontext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/music.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/note.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/notehead.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/notesubgroup.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/ornament.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/parser.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/pedalmarking.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/raphaelcontext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/registry.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/renderer.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stave.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavebarline.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/staveconnector.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavehairpin.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/staveline.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavemodifier.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavenote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/staverepetition.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavesection.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavetempo.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavetext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavetie.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stavevolta.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stem.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stemmablenote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/stringnumber.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/svgcontext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/system.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tables.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tabnote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tickable.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tickcontext.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/timesignature.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/timesignote.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tremolo.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tuning.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/tuplet.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/vex.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/vibrato.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/vibratobracket.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/voice.js') }}"></script>#}
+    {#<script type="text/javascript" src="{{ asset('profile/vexflow/src/voicegroup.js') }}"></script>#}
+
 {% endblock %}
 
