@@ -1,0 +1,51 @@
+
+#paginas principal de Administracion
+usuarios_homepage:
+    path:     /ad
+    defaults: { _controller: UsuariosBundle:User:principalAdmin }
+
+#pagina donde se muestra una tabla con los usuarios
+usuarios_registro:
+    path:     /usuarios/user
+    defaults: { _controller: UsuariosBundle:User:index }
+
+#pagina donde se añade usuarios a la base de datos
+usuarios_add:
+    path:     /usuarios/add
+    defaults: { _controller: UsuariosBundle:User:addUser }
+
+
+#pagina donde se editan a los usuarios mediente su id
+usuarios_edit:
+    path:     /usuarios/edit/{id}
+    defaults: { _controller: UsuariosBundle:User:edit }
+
+#pagina donde se eliminan a los usuarios mediante un id
+usuarios_delete:
+    path:     /usuarios/delete/{id}
+    defaults: { _controller: UsuariosBundle:User:delete }
+
+#-------------------------------------------------------------------------------------------------------------------------
+
+
+partituras_registro:
+    path:     /partituras/user
+    defaults: { _controller: UsuariosBundle:User:indexPartituras }
+
+partituras_add:
+    path:     /partituras/add
+    defaults: { _controller: UsuariosBundle:User:addPartitura }
+
+
+partituras_edit:
+    path:     /partituras/edit/{id}
+    defaults: { _controller: UsuariosBundle:User:editPartitura }
+
+
+partituras_delete:
+    path:     /partituras/delete/{id}
+    defaults: { _controller: UsuariosBundle:User:deletePartitura }
+
+
+
+
