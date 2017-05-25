@@ -1,10 +1,12 @@
 {% extends '::plantillaUser.html.twig' %}
 
+{% block title %} Listado {{ app.user }} {% endblock %}
+
 {% block content %}
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <h2>Lista de tus Partitas </h2>
+                <h2>Lista de tus Partituras </h2>
                 <h5>Aquí tienes el Listado de tus Partituras</h5>
                 <div id = "volver" style ="float:right;margin-top:-5%;">
                     <a href="{{ path('Cuaderno') }}" class="btn btn-lg btn-danger"> Volver</a>
@@ -84,4 +86,10 @@
         </div>
 
 {% endblock %}
+{% block javascripts %}
 
+
+    <script type="text/javascript" src="{{ asset('profile/js/js.js') }}"></script>
+
+
+{% endblock %}

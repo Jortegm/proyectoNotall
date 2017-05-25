@@ -1,0 +1,74 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Usuarios")
+ */
+class Usuarios {
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @var string
+     */
+    private $nombreUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     * @var string
+     */
+    private $apellidoUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @var string
+     */
+    private $correoUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @var string
+     */
+    private $nivelUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     * @var string
+     */
+    private $Pais;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @var string
+     */
+    private $nickUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @var string
+     */
+    private $passwdUsuario;
+
+    /**
+     * @ORM\Column(type="string", length=500)
+     * @var string
+     */
+    private $biografia;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Partitura", mappedBy="PartituraUsuario")
+     * @var Partitura
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $UsuarioPartitura;
+}
