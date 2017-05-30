@@ -698,7 +698,7 @@ img.fr {
     margin-bottom: 5px
 }
 .row {
-    display: table;
+    /*display: table;*/
     table-layout: fixed;
     width: 100%
 }

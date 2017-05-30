@@ -1,6 +1,5 @@
 
 window.addEventListener("load",function () {
-    hideTools();
     partituraVacia();
     //añadir una nueva partitura:
     var nex = document.getElementById("new");
@@ -23,44 +22,40 @@ window.addEventListener("load",function () {
 
 });
 
-/**
- * Escondemos todo el menu de anotacion
- */
-function hideTools () {
-    document.getElementById("option1").style.display="none";
-    document.getElementsByClassName("row")[0].style.display="none";
-    document.getElementById("nShow").style.display="none";
-    document.getElementById("articulation").style.display="none";
-    document.getElementById("ornaments").style.display="none";
-    document.getElementById("dinamic").style.display="none";
-}
+
 
 
 /**
  * Function que crea y dibuja una partitura vacia
  */
 function partituraVacia() {
-
-// crear partitura vacia
-    VF = Vex.Flow;
+const VF = Vex.Flow;
 
 // Create an SVG renderer and attach it to the DIV element named "boo".
-    var div = document.getElementById("boo")
-    var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+var vf = new VF.Factory({renderer: {selector: 'boo', height: 400}});
+var score = vf.EasyScore();
+var system = vf.System();
 
-// Configure the rendering context.
-    renderer.resize(900, 800);
-    var context = renderer.getContext();
-    context.setFont("Arial", 14, "").setBackgroundFillStyle("#eed");
+system.addStave({
+  voices: [
+    score.voice(
+      score.notes('C#5/q, B4')
+        .concat(score.beam(score.notes('A4/8, E4, C4, D4')))
+    )
+  ]
+}).addClef('treble').addTimeSignature('4/4');
 
-// Create a stave of width 400 at position 10, 40 on the canvas.
-    var stave = new VF.Stave(10, 40, 800);
+system.addStave({
+  voices: [
+    score.voice(
+      score.notes('C#5/q, B4, B4')
+        .concat(
+        score.tuplet(score.beam(score.notes('A4/8, E4, C4'))))
+    )
+  ]
+}).addClef('treble').addTimeSignature('2/4');
 
-// Add a clef and time signature.
-    stave.addClef("treble").addTimeSignature("4/4");
-
-// Connect it to the rendering context and draw!
-    stave.setContext(context).draw();
-
+vf.draw();
 }
+
 

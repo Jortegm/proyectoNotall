@@ -1,7 +1,13 @@
 {% extends '::plantillaUser.html.twig' %}
 
 {% block content %}
-
-
+{#comprobacion para saber si es usuario o Administrador#}
+    {% if app.user.getNombreUsuario() == 'Juan'%}
+        {% block javascript %}
+            <script>
+            document.getElementById("adm").style.display="block";
+            </script>
+       {% endblock %}
+    {% endif %}
 {% endblock %}
 

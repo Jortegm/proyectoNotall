@@ -21,4 +21,63 @@ $( window ).load(function() {
         $("#option1").hide();
     });
 
+    //menu mostrar y ocultar 
+    showhide();
+    toggleTools();
+
+
 });
+
+
+
+
+
+function showhide() {
+    $("#option1").hide();
+    $("#row").eq(0).hide();
+    $("#nShow").hide();
+    $("#articulation").hide();
+    $("#ornaments").hide();
+    $("#dinamic").hide();
+    $("#comp").hide();
+}
+
+
+function toggleTools() {
+    $("#Notas").click(function() {
+        $("#nShow").toggle();
+        $("#articulation").hide();
+        $("#ornaments").hide();
+        $("#dinamic").hide();
+        $("#comp").hide();
+    });
+    $("#Articulaciones").click(function() {
+        $("#articulation").toggle();
+        $("#nShow").hide();
+        $("#ornaments").hide();
+        $("#dinamic").hide();
+        $("#comp").hide();
+    });
+    
+    $("#Ornamento").click(function() {
+        $("#ornaments").toggle();
+        $("#nShow").hide();
+        $("#articulation").hide();
+        $("#dinamic").hide();
+        $("#comp").hide();
+    });
+    $("#Matices").click(function() {
+        $("#dinamic").toggle();
+        $("#nShow").hide();
+        $("#articulation").hide();
+        $("#ornaments").hide();
+        $("#comp").hide();
+    });
+    $("#Compas").click(function() {
+        $("#comp").toggle();
+        $("#nShow").hide();
+        $("#articulation").hide();
+        $("#ornaments").hide();
+        $("#dinamic").hide();
+    });
+}
