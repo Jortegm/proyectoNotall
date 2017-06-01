@@ -4,8 +4,8 @@ $( window ).load(function() {
         e.preventDefault();
         $("#info").hide();
         $("#modificar").show();
+        $("div").eq(42).hide();
         $("div").eq(43).hide();
-        $("div").eq(44).hide();
 
     });
 
@@ -27,9 +27,6 @@ $( window ).load(function() {
 
 
 });
-
-
-
 
 
 function showhide() {

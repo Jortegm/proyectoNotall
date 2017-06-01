@@ -18,6 +18,9 @@
                     </button>
                     <h1 class="navbar-brand" style="font-family: titulo; font-size: 80px; color:#FFF" >Zaide</h1>
                 </div>
+                 <div class="col-md-2" style="float:right; margin-top:1%">
+                    <h4 style="color:white">Bienvendo {{ app.user.getNombreUsuario() }} </h4>
+                </div>
                 <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
                     <a href="{{ path('salir') }}" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
@@ -76,14 +79,6 @@
 
     <div id="page-wrapper" >
         <div id="page-inner">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Bienvendo {{ app.user.getNombreUsuario() }} </h2>
-                    <h5>Este es tu Cuaderno, comienza a componer ... </h5>
-                </div>
-            </div>
-            <!-- /. ROW  -->
-            <hr />
             <div class="row" id="option1">
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="panel panel-back noti-box">
@@ -122,7 +117,6 @@
                     </div>
                 </div>
             </div>
-            <hr />
 
             <!-- /. ROW  -->
 
