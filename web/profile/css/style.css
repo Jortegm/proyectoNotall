@@ -6175,3 +6175,51 @@ credit-card .radio-cc i {
 .toolbar-elem.toolbar-lock a:hover svg .stroke {
     stroke: #e7e8ec
 }
+
+
+/******************************css anadido PARTITURA*********************************************/
+#part {
+    border:1px solid black;
+     margin:5%;
+     background-color: #ffffff;
+      -webkit-box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46);
+      -moz-box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46);
+     box-shadow: 0px 16px 54px 12px rgba(0,0,0,0.46);
+     margin-top: 5%; height: 500px;                        
+}
+
+#titulo {
+    border:1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-top:1%;
+}
+
+#titulo input {
+    margin-top:1%;
+}
+
+#subtitulo {
+    border:1px solid black;
+    width: 100%;
+    height: 10%;
+    margin-top:1%;
+    margin-bottom: 2%;
+}
+#sublo {
+    height: auto;
+    width: 60%;
+    float:left;
+    
+}
+#composer {
+    height: auto;
+    float:right;
+    margin-right: 2%;
+}
+
+#escribe {
+    border:1px solid black;
+}
+
+
