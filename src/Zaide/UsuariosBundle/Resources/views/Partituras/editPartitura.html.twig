@@ -37,6 +37,12 @@
                 {{ form_widget(form.ContenidoPartitura, {'attr' : {' class' : 'form-control'} }) }}
                 <span class="text-danger">{{ form_errors(form.ContenidoPartitura) }} </span>
             </div>
+
+            <div class="form-group">
+                {{ form_label(form.compartirPartitura) }}
+                {{ form_widget(form.compartirPartitura, {'attr' : {' class' : 'form-control'} }) }}
+                <span class="text-danger">{{ form_errors(form.compartirPartitura) }} </span>
+            </div>
 {{ form_end(form) }}
         </div>
 

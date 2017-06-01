@@ -1,289 +1,243 @@
+
 {% extends 'base.html.twig' %}
 {#pagina principal y de servicios de la aplicacion#}
-
+{% block title %}Zaide{% endblock %}
 {% block body %}
+
     <nav class="main-nav-outer" id="test"><!--main-nav-start-->
         <div class="container">
             <ul class="main-nav">
-                <li><a href="{{ path('principal')}}#service">Servicios</a></li>
-                <li><a href="{{ path('nociones')}}">Nociones </a></li>
-                <li><a href="{{ path('principal')}}#Portfolio">Partituras </a></li>
-
-                <li class="small-logo"><a href="https://www.youtube.com/watch?v=HZkl-07vhbo&t=1162s" target="_blank"><img src="img/mozart.png" alt="Opera de MOZART: ZAIDE" ></a></li>
-                <li><a href="{{ path('principal')}}#team">Equipo</a></li>
-                <li><a href="{{ path('Registro')}}">Registrate</a></li>
-                <li><a class="link animated fadeInUp delay-1s servicelink" href="{{ path('login') }}" style="width:auto; background-color:#FFF; border:3px solid #5fa8de; color-interpolation: #000; -webkit-border-radius: 28px;
-                 -moz-border-radius:28px ;border-radius: 28px;float: right;font-size:14px">Entrar</a></li>
-
+                    <li><a href="{{ path('principal')}}#service">Servicios</a></li>
+                    <li><a href="{{ path('nociones')}}">Nociones </a></li>
+                    <li><a href="{{ path('principal')}}#Portfolio">Partituras </a></li>
+                    <li class="small-logo"><a href="https://www.youtube.com/watch?v=HZkl-07vhbo&t=1162s" target="_blank"><img src="img/mozart.png" alt="Opera de MOZART: ZAIDE" ></a></li>
+                    <li><a href="{{ path('principal')}}#team">Equipo</a></li>
+                    <li><a href="{{ path('Registro')}}"style="color:#E4767B">Registrate</a></li>
+                <li><a  href="{{ path('login') }}" style="color:#3780C9">Entrar</a></li>
             </ul>
+            <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
         </div>
     </nav><!--main-nav-end-->
 
+
     {% block content %}
-
-    <section class="main-section" id="service"><!--main-section-start-->
+    <section class="main-section" id="service"><!--main-section-service-->
         <br/><br/>
-        <div class="container" >
-               <h2>Servicios</h2>
-               <h6>Zaide ofrece un gran abanico de posibilidades para crear partituras </h6>
-                   <div class="row">
-                       <div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
-                            <div class="service-list">
-                                <div class="service-list-col1">
-                                    <i class="fa fa-music"></i>
+            <div class="container" >
+                <h2>Servicios</h2>
+                <h6>Zaide ofrece un gran abanico de posibilidades para crear partituras </h6>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
+                                <div class="service-list">
+                                    <div class="service-list-col1">
+                                        <i class="fa fa-music"></i>
+                                    </div>
+                                    <div class="service-list-col2">
+                                        <h3>Zaide ofrece posibilidades en la composición de música online.</h3>
+                                    </div>
                                 </div>
-                                <div class="service-list-col2">
-                                    <h3>Zaide ofrece posibilidades en la composición de música online.</h3>
+                                <div class="service-list">
+                                    <div class="service-list-col1">
+                                        <i class="fa fa-hand-o-up"></i>
+                                    </div>
+                                    <div class="service-list-col2">
+                                        <h3>Aprende poco a poco con nosotros</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="service-list">
-                                <div class="service-list-col1">
-                                    <i class="fa fa-hand-o-up"></i>
+                                <div class="service-list">
+                                    <div class="service-list-col1">
+                                        <i class="fa fa-group"></i>
+                                    </div>
+                                    <div class="service-list-col2">
+                                        <h3>No IMPORTA el DÓNDE sino el QUÉ</h3>
+                                    </div>
                                 </div>
-                                <div class="service-list-col2">
-                                    <h3>Aprende poco a poco con nosotros</h3>
+                                <div class="service-list">
+                                    <div class="service-list-col1">
+                                        <i class="fa fa-bell-o"></i>
+                                    </div>
+                                    <div class="service-list-col2">
+                                        <h3>No importa que estilo tengas, disfruta y escribe</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="service-list">
-                                <div class="service-list-col1">
-                                    <i class="fa fa-group"></i>
+                                <div class="service-list">
+                                    <div class="service-list-col1">
+                                        <i class="fa fa-warning"></i>
+                                    </div>
+                                    <div class="service-list-col2">
+                                        <h3>¿Tienes alguna duda? Aquí tienes nuestro <a href="#Manual">manual</a> </h3>
+                                    </div>
                                 </div>
-                                <div class="service-list-col2">
-                                    <h3>No IMPORTA el DÓNDE sino el QUÉ</h3>
-                                </div>
-                            </div>
-                            <div class="service-list">
-                                <div class="service-list-col1">
-                                    <i class="fa fa-bell-o"></i>
-                                </div>
-                                <div class="service-list-col2">
-                                    <h3>No importa que estilo tengas, disfruta y escribe</h3>
-                                </div>
-                            </div>
-                            <div class="service-list">
-                                <div class="service-list-col1">
-                                    <i class="fa fa-warning"></i>
-                                </div>
-                                <div class="service-list-col2">
-                                    <h3>¿Tienes alguna duda? Aquí tienes nuestro <a href="#Manual">manual</a> </h3>
-                                </div>
-                            </div>
-                       </div>
-                       <figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
-                            <img src="img/partpiano.png" alt="">
-                       </figure>
-                   </div>
-               <div style="float:right; border:1px solid black; margin-top:3%;">
-                    <button type="button" class="btn btn-link"><a href="{{ path('Servicios') }}">Saber más ... </a></button >
-               </div>
-        </div>
+                        </div>
+                        <figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
+                                <img src="img/partpiano.png" alt="">
+                        </figure>
+                    </div>
+                <div style="float:right; border:1px solid black; margin-top:3%;">
+                        <button type="button" class="btn btn-link"><a href="{{ path('Servicios') }}">Saber más ... </a></button >
+                </div>
+            </div>
 
+            
     </section><!--main-section-end-->
 
-
-
-
-
-     <section class="main-section paddind" id="Portfolio"><!--main-section-start-->
-         <br/><br/>
-
-         <div class="container">
-        <h2>Partituras </h2>
-        <h6>En Zaide creemos que la música es nuestra banda sonora, por ellos todos aquellos participantes pueden dejar sus creaciónes para que todos podamos disfrutarlas.</h6>
-        <h6> Partituras más vistas</h6>
-            <div class="portfolioContainer wow fadeInUp delay-04s">
-                <div class=" Portfolio-box printdesign">
-                    <a href="#"><img src="img/Portfolio-pic1.jpg" alt=""></a>
-                    <h3>Foto Album</h3>
-                    <p>Print Design</p>
+    <section class="main-section paddind" id="Portfolio"><!--main-section-partituraslist portfolio-->
+        <br/><br/>
+            <div class="container">
+            <h2>Partituras </h2>
+            <h6>En Zaide creemos que la música es nuestra banda sonora, por ellos todos aquellos participantes pueden dejar sus creaciónes para que todos podamos disfrutarlas.</h6>
+            <h6> Partituras más vistas</h6>
+                <div class="container">
+                    <label>Total de Partituras: {{ pagination.getTotalItemCount }}</label> 
+                    <div class="table-responsive">          
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Subtítulo</th>
+                                <th>Ver Partitura</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%  for partitura in pagination %}
+                            <tr>
+                                <td>{{ partitura.nombrePartitura }}</td>
+                                <td>{{ partitura.subnombrePartitura }}</td>
+                                <td>mostrar</td>
+                            </tr>  
+                            {% endfor %}
+                        
+                        </tbody>
+                    </table>
                 </div>
-                <div class="Portfolio-box webdesign">
-                    <a href="#"><img src="img/Portfolio-pic2.jpg" alt=""></a>
-                    <h3>Luca Theme</h3>
-                    <p>Web Design</p>
-                </div>
-                <div class=" Portfolio-box branding">
-                    <a href="#"><img src="img/Portfolio-pic3.jpg" alt=""></a>
-                    <h3>Uni Sans</h3>
-                    <p>Branding</p>
-                </div>
-                <div class=" Portfolio-box photography" >
-                    <a href="#"><img src="img/Portfolio-pic4.jpg" alt=""></a>
-                    <h3>Vinyl Record</h3>
-                    <p>Photography</p>
-                </div>
-                <div class=" Portfolio-box branding">
-                    <a href="#"><img src="img/Portfolio-pic5.jpg" alt=""></a>
-                    <h3>Hipster</h3>
-                    <p>Branding</p>
-                </div>
-                <div class=" Portfolio-box photography">
-                    <a href="#"><img src="img/Portfolio-pic6.jpg" alt=""></a>
-                    <h3>Windmills</h3>
-                    <p>Photography</p>
-                </div>
-            </div>
-            <div style="float:right; border:1px solid black; margin-top:3%; margin-bottom: 3%">
-                <button type="button" class="btn btn-link"><a href="{{ path('Para') }}" >Saber más ... </a></button >
-            </div>
-        </div>
-     </section><!--main-section-end-->
+                <div class="row">
+                        <div class="navigation" style="float: right">
+                            {{  knp_pagination_render (pagination) }}
+                        </div>
+                </div>    	
+                    
+    </section><!--main-section-end-->
 
-
-     <section class="main-section team" id="team"><!--main-section team-start-->
-         <br/><br/>
-
-         <div class="container">
-            <h2>Equipo</h2>
-            <h6>Equipo creador de Zaide.</h6>
-                <div class="team-leader-box">
-                    <div class="team-leader  wow fadeInDown delay-06s">
-                        <div class="team-leader-shadow"><a href="#"></a></div>
-                            <img src="img/team-leader-pic2.jpg" alt=""/>
-                                <ul>
-                                    <li><a href="#" class="fa-twitter"></a></li>
-                                    <li><a href="#" class="fa-facebook"></a></li>
-                                    <li><a href="#" class="fa-pinterest"></a></li>
-                                    <li><a href="#" class="fa-google-plus"></a></li>
-                                </ul>
+    <section class="main-section team" id="team"><!--main-section team-start-->
+        <br/><br/>
+            <div class="container">
+                <h2>Equipo</h2>
+                <h6>Equipo creador de Zaide.</h6>
+                    <div class="team-leader-box">
+                        <div class="team-leader  wow fadeInDown delay-06s">
+                            <div class="team-leader-shadow"><a href="#"></a></div>
+                                <img src="img/team-leader-pic2.jpg" alt=""/>
+                                    <ul>
+                                        <li><a href="#" class="fa-twitter"></a></li>
+                                        <li><a href="#" class="fa-facebook"></a></li>
+                                        <li><a href="#" class="fa-pinterest"></a></li>
+                                        <li><a href="#" class="fa-google-plus"></a></li>
+                                    </ul>
+                        </div>
                     </div>
-                </div>
-            <h3 class="wow fadeInDown delay-09s">Juan Ortega Marín </h3>
-            <span class="wow fadeInDown delay-09s">Creador, desarrollador y diseñador</span>
-            <p class="wow fadeInDown delay-09s">orem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-        </div>
-     </section><!--main-section team-end-->
+                <h3 class="wow fadeInDown delay-09s">Juan Ortega Marín </h3>
+                <span class="wow fadeInDown delay-09s">Creador, desarrollador y diseñador</span>
+                <p class="wow fadeInDown delay-09s">orem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+            </div>
+    </section><!--main-section team-end-->
 
-
-    {% endblock %}
 
     <footer class="footer">
         <div class="container">
             <div class="footer-logo"><a href="#"><img src="{{ asset('img/small-logo.png') }}" alt=""></a></div>
             <span class="copyright">&copy; Zaide. Todos Los Derechos Reservados</span>
             <span class="copyright">&copy; 2017 Linares, Jaén (España)</span>
-
-            <div class="credits">
-                <!--
-                    All the links in the footer should remain intact.
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Knight
-                -->
-
-            </div>
         </div>
     </footer>
-{% endblock %}
+    {% endblock  %}
 
-{% block javascripts %}
-
-    <script type="text/javascript">
-        $(document).ready(function(e) {
-            $('#test').scrollToFixed();
-            $('.res-nav_click').click(function(){
-                $('.main-nav').slideToggle();
-                return false
-
+    {% block javascript %}
+        <script type="text/javascript">
+            $(document).ready(function(e) {
+                $('#test').scrollToFixed();
+                $('.res-nav_click').click(function(){
+                    $('.main-nav').slideToggle();
+                    return false    
+                    
+                });
+                
             });
-            $("#appbundle_usuarios_tipoDeUsuario").hide();
-            $("label").eq(8).hide();
+        </script>
 
-
-        });
-    </script>
-
-    <script>
-        wow = new WOW(
+        <script>
+            wow = new WOW(
             {
                 animateClass: 'animated',
                 offset:       100
             }
-        );
-        wow.init();
-    </script>
+            );
+            wow.init();
+        </script>
 
 
-    <script type="text/javascript">
+        <script type="text/javascript">
+            $(window).load(function(){
+                
+                $('.main-nav li a, .servicelink').bind('click',function(event){
+                    var $anchor = $(this);
+                    
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top - 102
+                    }, 1500,'easeInOutExpo');
+                    /*
+                    if you don't want to use the easing effects:
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1000);
+                    */
+            if ($(window).width() < 768 ) { 
+                $('.main-nav').hide(); 
+            }
+                    event.preventDefault();
+                });
+            })
+        </script>
+
+        <script type="text/javascript">
         $(window).load(function(){
+        var $container = $('.portfolioContainer'),
+            $body = $('body'),
+            colW = 375,
+            columns = null;
 
-            $('.main-nav li a, .servicelink').bind('click',function(event){
-                var $anchor = $(this);
-
-                $('html, body').stop().animate({
-                    scrollTop: $($anchor.attr('href')).offset().top - 102
-                }, 1500,'easeInOutExpo');
-                /*
-                 if you don't want to use the easing effects:
-                 $('html, body').stop().animate({
-                 scrollTop: $($anchor.attr('href')).offset().top
-                 }, 1000);
-                 */
-                if ($(window).width() < 768 ) {
-                    $('.main-nav').hide();
-                }
-                event.preventDefault();
-            });
-        })
-    </script>
-
-    <script type="text/javascript">
-
-        $(window).load(function(){
-
-
-            var $container = $('.portfolioContainer'),
-                $body = $('body'),
-                colW = 375,
-                columns = null;
-
-
-            $container.isotope({
-                // disable window resizing
-                resizable: true,
-                masonry: {
-                    columnWidth: colW
-                }
-            });
-
-            $(window).smartresize(function(){
-                // check if columns has changed
-                var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
-                if ( currentColumns !== columns ) {
-                    // set new column count
-                    columns = currentColumns;
-                    // apply width to container manually, then trigger relayout
-                    $container.width( columns * colW )
-                        .isotope('reLayout');
-                }
-
-            }).smartresize(); // trigger resize to set container width
-            $('.portfolioFilter a').click(function(){
+        
+        $container.isotope({
+            // disable window resizing
+            resizable: true,
+            masonry: {
+            columnWidth: colW
+            }
+        });
+        $(window).smartresize(function(){
+            // check if columns has changed
+            var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
+            if ( currentColumns !== columns ) {
+            // set new column count
+            columns = currentColumns;
+            // apply width to container manually, then trigger relayout
+            $container.width( columns * colW )
+                .isotope('reLayout');
+            }
+            
+        }).smartresize(); // trigger resize to set container width
+        $('.portfolioFilter a').click(function(){
                 $('.portfolioFilter .current').removeClass('current');
                 $(this).addClass('current');
-
+        
                 var selector = $(this).attr('data-filter');
                 $container.isotope({
-
+                    
                     filter: selector,
                 });
                 return false;
             });
-
+        
         });
-
-    </script>
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
+        </script>
+    {% endblock %}
 {% endblock %}

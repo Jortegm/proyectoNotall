@@ -54,16 +54,18 @@
                     <th>NOMBRE DE LA PARTITURA</th>
                     <th>SUBTITULO DE LA PARTITURA</th>
                     <th>CONTENIDO DE LA PARTITURA</th>
+                    <th>COMPARTIR CON EL MUNDO</th>
                 </tr>
                 </thead>
                 {%  for partitura in pagination %}
                     <tbody>
                     <tr>
-                        <td>{{ partitura.id }}</td>
-                        <td>{{ partitura.PartituraUsuario }}</td>
-                        <td>{{ partitura.nombrePartitura }}</td>
+                        <td> {{ partitura.id }}</td>
+                        <td> {{ partitura.PartituraUsuario }}</td>
+                        <td> {{ partitura.nombrePartitura }}</td>
                         <td> {{ partitura.subnombrePartitura }}</td>
-                        <td>{{ partitura.ContenidoPartitura }}</td>
+                        <td> {{ partitura.ContenidoPartitura }}</td>
+                        <td> {{ partitura.compartirPartitura }}</td>
                         <td>
                             <a href="{{ path('partituras_edit', {id: partitura.id }) }}"><button class="btn btn-link" style="color:#5eb5e0">Editar partitura</button></a><br/>
                             <a href="{{ path('partituras_delete', {id: partitura.id}) }}  "><button class="btn btn-link" style="color:red">Eliminar partitura</button></a>

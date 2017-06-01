@@ -138,7 +138,7 @@ class UserController extends Controller {
             ->getResult();
 
         $paginacion = $this->get('knp_paginator');
-        $pagination = $paginacion->paginate($partitura, $request->query->getInt('page', 1), 10);
+        $pagination = $paginacion->paginate($partitura, $request->query->getInt('page', 1), 5);
         //$users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
 
         return $this->render('@Usuarios/Partituras/indexPartituras.html.twig', array('pagination' => $pagination));

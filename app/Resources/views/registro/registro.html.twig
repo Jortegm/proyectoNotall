@@ -2,7 +2,6 @@
 {#<!-- pagina de registro para nuevos usuarios -->#}
 
 {% block content %}
-    <body>
         <section section class="main-section team" id="team" style="padding:10px"><!--main-section team-start-->
             <br/><br/>
 
@@ -76,5 +75,10 @@
             </div>
             </div>
         </section>
-    </body>
+        
 {% endblock %}
+{% block javascript %}
+            <script type="text/javascript">
+                $("div").eq(17).hide();
+            </script>
+        {% endblock %}    

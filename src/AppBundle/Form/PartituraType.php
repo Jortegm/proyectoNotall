@@ -20,6 +20,7 @@ class PartituraType extends AbstractType
             ->add ('subNombrePartitura', null)
             ->add('ContenidoPartitura',null)
             ->add('PartituraUsuario', null)
+            ->add('CompartirPartitura', ChoiceType::class, array('choices'=> array( 0 => 'NO', 1 => 'SI')))
             ->add('Submit', SubmitType::class, array ('label' => 'Añadir '));
 
     }

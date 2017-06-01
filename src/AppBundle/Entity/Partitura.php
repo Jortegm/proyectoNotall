@@ -55,6 +55,12 @@ class Partitura {
     private $ContenidoPartitura;
 
     /**
+    * @ORM\Column (type="boolean")
+    * @var boolean $compartirPartitura
+    */
+    private $compartirPartitura;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Usuarios", inversedBy="UsuarioPartitura")
      * @var Usuarios
      * @ORM\JoinColumn(nullable=false)
@@ -119,6 +125,31 @@ class Partitura {
     {
         return $this->ContenidoPartitura;
     }
+
+    /**
+    *Set compartirPartitura
+    *
+    *@param boolean $compartirPartitura
+    *
+    *@return boolean
+    */
+    public function setcompartirPartitura($compartirPartitura)
+    {
+        $this->compartirPartitura = $compartirPartitura;
+
+        return $this;
+    }
+
+    /**
+    *Get compartirPartitura
+    *
+    *@return boolean
+    */
+    public function getcompartirPartitura() 
+    {
+        return $this->compartirPartitura;
+    }
+
 
     /**
      * Set partituraUsuario

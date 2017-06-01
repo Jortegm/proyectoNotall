@@ -25,7 +25,7 @@ class UsuariosType extends AbstractType
         $builder
             ->add('nombreUsuario', null)
             ->add('apellidoUsuario', null)
-            ->add('tipoDeUsuario',ChoiceType::class, array('choices'=> array('ROLE_ADMIN'=> 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER')))
+            ->add('tipoDeUsuario',ChoiceType::class, array('choices'=> array('ROLE_USER'=> 'ROLE_USER', 'ROLE_ADMIN' => 'ROLE_ADMIN'), 'required'=>'false'))
             ->add('nivelUsuario', ChoiceType::class, array('choices' => array('Novato'=>'NOVATO', 'Intermedio'=> 'INTERMEDIO', 'Experto'=> 'EXPERTO'), 'placeholder' => 'Selecciona una opción', 'required'=>'false'))
             ->add('Pais', null)
             ->add('nickUsuario', null)

@@ -29,10 +29,20 @@ class DefaultController extends Controller
     /**
      * @Route("/principal", name="principal")
      */
-    public function principalAction(Request $request)
-    {
+    public function principalAction(Request $request){
+        /** @var EntityManager $em */
+        $em = $this-> getDoctrine()->getManager();
+        $partitura = $em->createQueryBuilder()
+            ->select ('u')
+            ->from ('AppBundle:Partitura', 'u')
+            ->getQuery ()
+            ->getResult();
+
+        $paginacion = $this->get('knp_paginator');
+        $pagination = $paginacion->paginate($partitura, $request->query->getInt('page', 1), 5);
+        //$users = $em -> getRepository('AppBundle:Usuarios')-> findAll();
         // replace this example code with whatever you need
-        return $this->render('plantilla.html.twig');
+        return $this->render('plantilla.html.twig', array('pagination' => $pagination));
     }
 
     /**
