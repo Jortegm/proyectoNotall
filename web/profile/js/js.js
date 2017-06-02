@@ -21,6 +21,10 @@ $( window ).load(function() {
         $("#option1").hide();
     });
 
+    $("#metrome").click(function() {
+        $(".jumbotron").toggle();
+    });
+
     //menu mostrar y ocultar 
     showhide();
     toggleTools();

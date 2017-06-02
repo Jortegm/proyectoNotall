@@ -3,7 +3,15 @@
 
 {% block body %}
 {#<!-- ESto es el menu principal-->#}
-
+{% if app.user == false %}
+    <div style="text-align:center">
+        <img src=" {{ asset('profile/img/mother_of_mozart_.png')}}"/>
+        <button type="button" class="btn btn-danger">
+            <a href="{{ path('principal')}}#service">Volver</a>
+        </button>
+    </div>
+    
+{% else %}
     <!-- container section start -->
     <section id="container" class="">
         <header class="header dark-bg">
@@ -50,19 +58,13 @@
     </header>
 
     {% block content %} <!-- El contenido de la pagina-->
-
-
-
-    {% endblock %}
-
+    {% endblock %}    
     <footer class="footer"> <!--pie de pagina-->
     </footer>
-
-{% endblock %}
-
 {% block javascripts %} <!-- los javascriptses-->
     <script>
 
     </script>
-
+{% endblock %}
+{% endif %}
 {% endblock %}

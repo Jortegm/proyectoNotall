@@ -3,7 +3,16 @@
 
 {% block body %}
 {#<!-- Esto es el menu principal plantilla User-->#}
-
+{% if app.user == false %}
+<br/><br/>
+    <div style="text-align:center">
+        <img src=" {{ asset('profile/img/mother_of_mozart_.png')}}"/>
+        <button type="button" class="btn btn-danger">
+            <a href="{{ path('principal')}}#service">Volver</a>
+        </button>
+    </div>
+    
+{% else %}
 
     <!-- container section start -->
     <section id="container" class="">
@@ -130,7 +139,7 @@
     </div>
 
 
-
+{% endif %}
 {% endblock %}
 
 {% block javascripts %} <!-- los javascriptses-->

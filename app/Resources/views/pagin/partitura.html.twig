@@ -1,7 +1,9 @@
 {% extends '::plantillaUser.html.twig' %}
 {% block title %} Partitura {{ app.user }} {% endblock %}
 
+
 {% block content %}
+
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
@@ -13,6 +15,51 @@
             </div>
         </div>
         <hr>
+        <div class="jumbotron" style="display:none">
+            <button type="button" class="btn btn-default btn-lg disabled" id="control-button">
+            <span class="glyphicon glyphicon-play"></span>
+            </button>
+            <div class="btn-group">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" id="upper-parent">
+                4
+                </button>
+                <ul class="dropdown-menu" role="menu" id="upper-options">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">11</a></li>
+                <li><a href="#">12</a></li>
+                <li><a href="#">13</a></li>
+                <li><a href="#">14</a></li>
+                <li><a href="#">15</a></li>
+                <li><a href="#">16</a></li>
+                <li><a href="#">17</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-default btn-sm disabled" id="divider-button">/</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" id="lower-parent">
+                4
+                </button>
+                <ul class="dropdown-menu" role="menu" id="lower-options">
+                <li><a href="#">2</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">16</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+
         <div class="row" id="menuPartitura" style="width: 100%; height: 100%;">
             <div class="col-md-12" style="text-align:center">
                 {#menu --> principal#}
@@ -115,7 +162,7 @@
                         </a>
                     </div>
                     <div class="toolbar-separator"></div>
-                    <div class="toolbar-elem" value="metrome">
+                    <div class="toolbar-elem" value="metrome" id="metrome">
                         <a class="link-block">
                             <div class="toolbar-icon toolbar-svg">
                                 <svg width="34" height="42" viewBox="0 0 34 42" xmlns="http://www.w3.org/2000/svg">
@@ -126,6 +173,7 @@
                                 </svg>
                             </div>
                         </a>
+                       
                     </div>
                     <div class="toolbar-separator" value="save"></div>
                         <div class="toolbar-elem">
@@ -1391,17 +1439,16 @@
                 <div id="stile">
                     <div id="part">
                         <div id="titulo">
-                            <h3><input type="text" placeholder="( Título )" style="text-align: center; 	border-width:0;"> </h3><br/>
+                            <h3><input type="text" placeholder="( Título )" style="text-align: center; width:100%;border-width:0;"> </h3><br/>
                         </div>
                         <div id="subtitulo">
                             <div id="sublo">
-                                <h4><input type="text" placeholder="( Subtitulo )" style="border-width:0;"></h4>
+                                <h4><input type="text" placeholder="( Subtitulo )" style="border-width:0;width:600px;"></h4>
                             </div>
                             <div id="composer">
                                 <h4>Compositor: {{ app.user }}</h4>
                             </div>
                         </div>
-
                         <div id="escribe">
                             <div id="boo" class="boo" width=500 height=800 style="background:#fff" id="canvas"></div>
                         </div>
@@ -1423,4 +1470,8 @@
     <script type="text/javascript" src="{{ asset('profile/vexflow/releases/vexflow-debug.js') }}"></script>
     <script type="text/javascript" src="{{ asset('profile/js/vex.js') }}"></script>
     <script type="text/javascript" src="{{ asset('profile/js/js.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/soundmanager2-nodebug-jsmin.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('profile/js/clicker.js') }}"></script>
+
+
 {% endblock %}
